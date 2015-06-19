@@ -7,6 +7,7 @@ class VoteResultsController < ApplicationController
     current_user = User.create()
     session[:user_id] = current_user.id
     redirect_to new_vote_result_path
+  	
   end
 
   def new
@@ -38,7 +39,9 @@ class VoteResultsController < ApplicationController
   end
 
   def report
-
+  	#@vote_result= VoteResult.find(session[:user_id])
+  	@user = User.find(session[:user_id])
+    @reporting_results = @user.make_score
   end
 
   private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619153300) do
+ActiveRecord::Schema.define(version: 20150619163329) do
 
   create_table "representatives", force: :cascade do |t|
     t.integer  "r_id"
