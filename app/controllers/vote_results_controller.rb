@@ -7,7 +7,7 @@ class VoteResultsController < ApplicationController
     current_user = User.create()
     session[:user_id] = current_user.id
     redirect_to new_vote_result_path
-  	
+
   end
 
   def new
@@ -17,7 +17,7 @@ class VoteResultsController < ApplicationController
     if vote_count >= 6
       redirect_to report_vote_results_path
     else
-      @vote = Vote.find(vote_count+1)
+      @vote = Vote.find(vote_count+7)
       @vote_result = VoteResult.new(user: @user, vote: @vote)
 
     end
@@ -38,13 +38,14 @@ class VoteResultsController < ApplicationController
 
   end
 
+
   def report
   	#@vote_result= VoteResult.find(session[:user_id])
   	@user = User.find(session[:user_id])
     @reporting_results = @user.make_score
   end
 
-  private
+private
   def vote_result_params
     params.require(:vote_result).permit(:result)
   end
