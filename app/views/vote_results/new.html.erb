@@ -1,1 +1,17 @@
-<h1>hihihi</h1>
+<h1><%= @vote.title %></h1>
+
+
+<%= form_for @vote_result, html: {role: "form", class: "form-horizontal"} do |f| %>
+  <%= hidden_field_tag :user_id, @user.id %>
+  <%= hidden_field_tag :vote_id, @vote.id %>
+  <%= f.radio_button :result, 'yes' %>
+  <%= label :result_yes, 'Yes' %>
+  <%= f.radio_button :result, 'no' %>
+  <%= label :result_no, 'No' %>
+
+
+  <div class="align-center">
+    <%= f.submit "submit", class: "btn btn-primary "  %>
+  </div>
+<% end %>
+
