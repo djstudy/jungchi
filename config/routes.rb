@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :vote_results do
     collection do
         get 'report'
-
+        post 'start'
     end
   end
 
