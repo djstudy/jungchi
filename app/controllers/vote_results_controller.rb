@@ -19,7 +19,7 @@ class VoteResultsController < ApplicationController
     else
       @vote = Vote.find(vote_count+7)
       @vote_result = VoteResult.new(user: @user, vote: @vote)
-
+      @vote_percentage = get_percentage
     end
   end
 
@@ -54,5 +54,11 @@ private
     if !session[:user_id]
       redirect_to vote_results_path
     end
+  end
+
+  def get_percentage
+    @user = User.find(session[:user_id])
+    vote_count = @user.vote_results.all.count
+    100* (vote_count/6.0)
   end
 end
