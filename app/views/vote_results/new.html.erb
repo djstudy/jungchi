@@ -1,22 +1,33 @@
-<div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: <%=@vote_percentage%>%;">
+<div class="row">
+  <div class="col-xs-12 col-md-4 col-md-offset-4">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: <%=@vote_percentage%>%;">
+      </div>
+    </div>
+
+    <h1><%= @vote.title %></h1>
+
+
+    <%= form_for @vote_result, html: {role: "form" } do |f| %>
+      <%= hidden_field_tag :user_id, @user.id %>
+      <%= hidden_field_tag :vote_id, @vote.id %>
+      <div class="form-group has-feedback <%= validation_state(@vote_result, :result) %>">
+        <div class="radio">
+          <label class="radio-inline">
+            <%= f.radio_button :result, 'yes', required: "required" %> Yes
+          </label>
+          <label class="radio-inline">
+            <%= f.radio_button :result, 'no', required: "required" %> No
+          </label>
+        </div>
+        <span class="glyphicon <%= validation_state_feedback(@vote_result, :result) %> form-control-feedback"></span>
+        <span class="help-block"><%= attribute_error_message(@vote_result, :result) %></span>
+      </div>
+
+
+
+        <%= f.submit "submit", class: "btn btn-primary center-block"  %>
+
+    <% end %>
   </div>
 </div>
-
-<h1><%= @vote.title %></h1>
-
-
-<%= form_for @vote_result, html: {role: "form", class: "form-horizontal"} do |f| %>
-  <%= hidden_field_tag :user_id, @user.id %>
-  <%= hidden_field_tag :vote_id, @vote.id %>
-  <%= f.radio_button :result, 'yes' %>
-  <%= label :result_yes, 'Yes' %>
-  <%= f.radio_button :result, 'no' %>
-  <%= label :result_no, 'No' %>
-
-
-  <div class="align-center">
-    <%= f.submit "submit", class: "btn btn-primary "  %>
-  </div>
-<% end %>
-

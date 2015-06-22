@@ -18,7 +18,7 @@ class VoteResultsController < ApplicationController
       redirect_to report_vote_results_path
     else
       @vote = Vote.find(vote_count+7)
-      @vote_result = VoteResult.new(user: @user, vote: @vote)
+      @vote_result = VoteResult.new
       @vote_percentage = get_percentage
     end
   end
@@ -31,7 +31,12 @@ class VoteResultsController < ApplicationController
     if @vote_result.save
       redirect_to new_vote_result_path
     else
-      "fuck"
+      @user = User.find(session[:user_id])
+      vote_count = @user.vote_results.all.count
+      @vote = Vote.find(vote_count+7)
+      @vote_percentage = get_percentage
+
+      render "new"
     end
     # raise @vote_result.inspect
     # VoteResult.create(user: @user, vote: @vote, result: params[:result]))
@@ -47,7 +52,7 @@ class VoteResultsController < ApplicationController
 
 private
   def vote_result_params
-    params.require(:vote_result).permit(:result)
+    params.fetch(:vote_result, {}).permit(:result)
   end
 
   def authenticate!
@@ -59,6 +64,6 @@ private
   def get_percentage
     @user = User.find(session[:user_id])
     vote_count = @user.vote_results.all.count
-    100* (vote_count/6.0)
+    100 * (vote_count / 6.0)
   end
 end
