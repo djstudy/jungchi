@@ -1,3 +1,5 @@
-<%= link_to "다시하기", vote_results_path, class: "btn btn-default" %>
+<%= link_to(vote_results_path, class: "btn btn-default") do %>
+  <span class="glyphicon glyphicon-repeat" aria-hidden="true"> </span> 다시하기
+<% end %>
 
 <%= @reporting_results.inspect %>
