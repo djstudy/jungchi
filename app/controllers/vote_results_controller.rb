@@ -15,7 +15,7 @@ class VoteResultsController < ApplicationController
     @user = User.find(session[:user_id])
     vote_count = @user.vote_results.all.count
     if vote_count >= TOTAL_VOTING_NUMBER
-      redirect_to report_vote_results_path
+      redirect_to report_vote_result_path(@user)
     else
       @vote = Vote.all.order(:id).all[vote_count]
       @vote_result = VoteResult.new
@@ -45,15 +45,19 @@ class VoteResultsController < ApplicationController
 
 
   def report
-  	@user = User.find(session[:user_id])
-    vote_count = @user.vote_results.all.count
+  	if ( @user = User.find_by_id(params[:id]))
+      vote_count = @user.vote_results.all.count
 
-    if vote_count < TOTAL_VOTING_NUMBER
-      redirect_to new_vote_result_path
+      if vote_count < TOTAL_VOTING_NUMBER
+        redirect_to new_vote_result_path
+      end
+
+
+      @reporting_results = @user.make_score
+    else
+      raise '잘못된 접근'
     end
 
-
-    @reporting_results = @user.make_score
   end
 
 private

@@ -3,8 +3,11 @@ Rails.application.routes.draw do
 
   resources :vote_results do
     collection do
-        get 'report'
-        post 'start'
+      post 'start'
+    end
+
+    member do
+      get 'report'
     end
   end
 
