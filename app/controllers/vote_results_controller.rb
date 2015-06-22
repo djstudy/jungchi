@@ -14,10 +14,10 @@ class VoteResultsController < ApplicationController
 
     @user = User.find(session[:user_id])
     vote_count = @user.vote_results.all.count
-    if vote_count >= 6
+    if vote_count >= TOTAL_VOTING_NUMBER
       redirect_to report_vote_results_path
     else
-      @vote = Vote.find(vote_count+7)
+      @vote = Vote.all.order(:id).all[vote_count]
       @vote_result = VoteResult.new
       @vote_percentage = get_percentage
     end
@@ -33,7 +33,7 @@ class VoteResultsController < ApplicationController
     else
       @user = User.find(session[:user_id])
       vote_count = @user.vote_results.all.count
-      @vote = Vote.find(vote_count+7)
+      @vote = Vote.all.order(:id).all[vote_count]
       @vote_percentage = get_percentage
 
       render "new"
@@ -45,8 +45,14 @@ class VoteResultsController < ApplicationController
 
 
   def report
-  	#@vote_result= VoteResult.find(session[:user_id])
   	@user = User.find(session[:user_id])
+    vote_count = @user.vote_results.all.count
+
+    if vote_count < TOTAL_VOTING_NUMBER
+      redirect_to new_vote_result_path
+    end
+
+
     @reporting_results = @user.make_score
   end
 
@@ -64,6 +70,6 @@ private
   def get_percentage
     @user = User.find(session[:user_id])
     vote_count = @user.vote_results.all.count
-    100 * (vote_count / 6.0)
+    100 * (vote_count / TOTAL_VOTING_NUMBER.to_f)
   end
 end
