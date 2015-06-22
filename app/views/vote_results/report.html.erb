@@ -1,5 +1,24 @@
-<%= link_to(vote_results_path, class: "btn btn-default") do %>
-  <span class="glyphicon glyphicon-repeat" aria-hidden="true"> </span> 다시하기
-<% end %>
 
-<%= @reporting_results.inspect %>
+<div class="row">
+  <div class="col-xs-12 col-md-4 col-md-offset-4">
+    <div class="representatives-carousel">
+    <% @reporting_results.each do |score| %>
+      <div>
+      <%= score[:representative].name %>
+      <%= score[:count] %>
+
+      </div>
+    <% end %>
+    </div>
+
+
+
+    <div class="text-center">
+    <%= link_to(vote_results_path, class: "btn btn-default ") do %>
+      <span class="glyphicon glyphicon-repeat" aria-hidden="true"> </span> 다시하기
+    <% end %>
+    </div>
+
+
+  </div>
+</div>
