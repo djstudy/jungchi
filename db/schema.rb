@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619163329) do
+ActiveRecord::Schema.define(version: 20150623121951) do
 
   create_table "representatives", force: :cascade do |t|
     t.integer  "r_id"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20150619163329) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vote_infos", force: :cascade do |t|
+    t.integer  "vote_id"
+    t.string   "info_type"
+    t.integer  "sequence"
+    t.text     "content"
+    t.integer  "speaker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
