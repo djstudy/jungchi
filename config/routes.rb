@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  root 'vote_results#index'
   resources :vote_results do
     collection do
       post 'start'
