@@ -7,6 +7,60 @@
 
     <h1><%= @vote.title %></h1>
 
+    <script type="text/javascript">
+      $(document).ready(function(){
+      $('[data-toggle="popover"]').popover();   
+      });
+    </script>
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          배경 정보 보기
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. 
+      </div>
+    </div>
+  </div>
+</div>
+    
+<div class="pull-left">   
+<img src="http://pds.joins.com/news/component/htmlphoto_mmdata/201303/07/htm_20130307004530103011.jpg" class="img-circle" width="50" height="50">
+</div>
+<span class="popover-example" >
+  <span class="popover right" style="margin-left: 60px">
+    <div class="arrow"></div>
+      <h3 class="popover-title">의장 오세훈</h3>
+      <div class="popover-content">
+        <p>안녕하세요 오늘의 회의를 시작하겠습니다</p>
+      </div>
+    </span>
+  </span>
+</span>
+
+<div class="pull-right">   
+  <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQsD7a-FiVAzBTmuuYzksAiwcS95QOTxUvDsDwwjaALWBCZ7I8c" class="img-circle" width="50" height="50">
+</div>
+<span class="popover-example pull-right">
+  <span class="popover left" >
+    <div class="arrow"></div>
+    <h3 class="popover-title">국회의원 이정희</h3>
+    <div class="popover-content">
+
+      <p>저희 위원회에서 발의한 안건은 온 우주가 바라면 그렇게 될 거라고 생각을 하며 우리의 염원을...</p>
+    </div>
+  </span>
+</span>
+
+<div class="clearfix"></div>
+    
+  
 
     <%= form_for @vote_result, html: {role: "form" } do |f| %>
       <%= hidden_field_tag :user_id, @user.id %>
