@@ -1,5 +1,5 @@
 class VoteResult < ActiveRecord::Base
-  validates :result, inclusion: ["yes", "no"]
+  validates :result, inclusion: ["chanseong", "bandae", "gigwon", "boolcham", "chooljang", "cheongga", "gyeolseok"]
 
   belongs_to :user
   belongs_to :representative

@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626115421) do
+
+ActiveRecord::Schema.define(version: 20150626113843) do
 
   create_table "representatives", force: :cascade do |t|
     t.string   "name"
@@ -51,7 +52,6 @@ ActiveRecord::Schema.define(version: 20150626115421) do
 
   create_table "votes", force: :cascade do |t|
     t.date     "voted_date"
-    t.integer  "v_id"
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
