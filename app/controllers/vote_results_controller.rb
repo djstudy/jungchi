@@ -14,6 +14,7 @@ class VoteResultsController < ApplicationController
 
     @user = User.find(session[:user_id])
     vote_count = @user.vote_results.all.count
+    @step_number = vote_count + 1
     if vote_count >= TOTAL_VOTING_NUMBER
       redirect_to report_vote_result_path(@user)
     else
