@@ -2,13 +2,196 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .representatives-carousel{
   margin: 0 50px 50px 50px;
+}
+.jc_main_ment{
+	border-radius:12px;
+	border: 2px solid black;
+	padding: 17px;
+	margin: 0px 20px 0px 20px;
+	font-size: 17px;
+}
+.jc_navbar_logo{
+	position:absolute;
+	left:50%;
+	margin-left:-140px;
+}
+.jc_navbar_custom{
+	background-color:transparent !important;
+	border-color:transparent !important;
+	height:185px;
+	padding:20px;
+}
+.progress-bar{
+	background-color: black !important;
+	opacity:0.8;
+}
+
+.jc_btn_custom{
+	margin-top:50px;
+	margin-bottom:50px !important;
+	background-color:black !important;
+	border-color:black !important;
+	color:white !important;
 }
 
 .popover-example .popover {
   position: relative;
   display: block;
   margin: 20px;
+  
+}
+.jc_dialog{
+	border-radius: 15px;
+	border-color:#006666;
+	border-style:solid;
+	border-width:3px;
+	padding:10px;
+	background-color:#006666;
+	color:white;
+}
+.jc_arrow-left {
+	position: absolute;
+	width: 0; 
+	height: 0; 
+	top: 50%;
+	left: 5px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid #006666;
+}
+.jc_arrow-right {
+	position: absolute;
+	width: 0; 
+	height: 0; 
+	top: 50%;
+	right: 5px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid #006666;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+    margin-top:25px;
+	margin-bottom:30px;
+	}
+.jc_dialog_title {
+	background-color: white;
+	padding:5px;
+	border-radius: 10px;
+	color:black;
+	font-size:26px;
+	font-weight:bold;
+}
+.jc_dialog_contents{
+	padding:10px 5px;
+}
+a.jc_dialog_more:link, a.jc_dialog_more:hover, a.jc_dialog_more:visited{
+	color:yellow;
+	text-decoration:underline;
+	font-size:16px;
+	font-weight:bold;
+	text-align:center;
 }
 
+.jc_all_pad{
+	padding:12px;
+	
+}
+
+.jc_selection{
+	margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.jc_number{
+	border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    text-align:center;
+    color:white;
+    font-size:30px;
+}
+
+#jc_background{
+	
+	text-align: justify;
+	padding: 0px 3px 0px 3px;
+	font-weight:bold;
+	font-size:15px;
+	vertical-align:middle;
+	height:75px;
+	line-height:75px;
+}
+#jc_background div{
+	display: inline-block;
+}
+#jc_background:after {
+  content: '';
+  width: 100%; 
+  display: inline-block;
+}
+#jc_background_c{
+	border-radius: 15px;
+	margin:0px 10px 10px 10px;
+	border: 2px solid black;
+	padding:10px 10px;
+
+}
+
+#jc_discussion{
+	height:75px;
+	line-height:75px;
+	font-weight:bold;
+	font-size:20px;
+	text-align:center;
+}
+
+.jc_no_wrap{
+	position: relative;
+	white-space: nowrap;
+	text-align:center;
+	margin:10px;
+    width: 100%;
+
+}
+
+.nopadding {
+   padding: 3px !important;
+   margin: 0 !important;
+}
+
+.jc_greencircle_1{
+	position:absolute;
+	right:40px;
+	z-index:-50;
+	vertical-align:middle;
+	padding-bottom:20px;
+	opacity:0.4;
+}
+
+.jc_greencircle_2{
+	position:absolute;
+	left: 50%;
+  	margin-left: -37px;
+	z-index:-50;
+	vertical-align:middle;
+	padding-bottom:20px;
+	opacity:0.7;
+}
+
+.jc_greencircle_3{
+	position:absolute;
+	left:50%;
+	margin-left:-45px;
+	margin-top:-20px;
+	z-index:-50;
+	vertical-align:middle;
+	padding-bottom:20px;
+	opacity:0.4;
+}
