@@ -1,21 +1,37 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <p class= "jc_results_ment_title">당신의 정친테스트 결과</p>
+    <p class="jc_results_ment flow-text">당신은 <i>안철수(3개 일치)</i> 라기 보다는...</p>
+     <img src="http://imagizer.imageshack.us/v2/100x75q90/905/GP2wIx.png" class="jc_greencircle_name"><br>
     <div class="representatives-carousel">
     <% @reporting_results.each do |score| %>
-      <div>
-      <%= score[:representative].name %>
-      <img src= "<%= score[:representative].profile_img_url %>" />
+      <div class="jc_results">
+
+      <div class="jc_rep_name">
+        <%= score[:representative].name %>
+      </div>
+      <img src= "<%= score[:representative].profile_img_url %>" class="jc_rep_img"/>
       <%= score[:representative].party %>
-      <%= score[:count] %>
+      <br>
+      <%= score[:count] %>개 일치
       </div>
     <% end %>
     </div>
+    <img src="http://imagizer.imageshack.us/v2/100x75q90/905/GP2wIx.png" class="jc_greencircle_result">
+
+    <p class="jc_results_share">이 결과를<br>페이스북에<br>공유하기<p>
+
+
+
 
     <div class="text-center">
       <%= link_to(vote_results_path, class: "btn btn-default ") do %>
       <span class="glyphicon glyphicon-repeat" aria-hidden="true"> </span> 다시하기
       <% end %>
+      <br><br>
     </div>
+
+
 
 
   </div><!-- end of col-xs-12 col-md-6 col-md-offset-3 -->
