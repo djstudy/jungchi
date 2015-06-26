@@ -11,7 +11,7 @@
       <%= @step_number %>
     </div>
 
-    <h1>재난 및 안전관리 기본법 일부개정법률안 (대안)</h1>
+    <h1><%= @vote.title %></h1>
     <!-- <h1>&#10077<%= @vote.title %>&#10078</h1> -->
     <div id="jc_background">
     <div>제안일 : <%= @vote.voted_date %></div>
@@ -59,11 +59,11 @@
 
         <div class="radio" align="center">
           <label class="radio-inline">
-            <%= f.radio_button :result, 'yes', required: "required" %> <h2>찬성</h2>
+            <%= f.radio_button :result, 'chanseong', required: "required" %> <h2>찬성</h2>
           </label>
               <img src="http://imagizer.imageshack.us/v2/150x100q90/905/GP2wIx.png" class="jc_greencircle_3">
           <label class="radio-inline">
-            <%= f.radio_button :result, 'no', required: "required" %><h2>반대</h2>
+            <%= f.radio_button :result, 'bandae', required: "required" %><h2>반대</h2>
           </label>
         </div>
 

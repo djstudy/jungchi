@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
       count = 0
       r.vote_results.each do |r_vote_result|
         user_result.each do |a_user_result|
-          if r_vote_result.vote_id == a_user_result.vote_id && r_vote_result.result == a_user_result.result
+          if r_vote_result.vote_id == a_user_result.vote_id && result_compare(a_user_result.result, r_vote_result.result)
             count +=1
           end
         end
@@ -19,5 +19,14 @@ class User < ActiveRecord::Base
 
 
   end
+
+  def result_compare(i,j)
+    if i=="bandae" || i=="gigwon"
+      j=="bandae" || j=="gigwon"
+    else
+      i==j
+    end
+  end
+
 end
 
