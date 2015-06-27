@@ -1,56 +1,66 @@
 <div class="jc_all_pad">
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
-
     <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: <%=@vote_percentage%>%;">
+      <div class="progress-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: <%=@vote_percentage%>%;"></div>
+    </div>
+
+    <div class="jc_number"><%= @step_number %></div>
+    <h1><%= @vote.title %></h1><!-- <h1>&#10077<%= @vote.title %>&#10078</h1> -->
+    
+    <div id="jc_background">
+      <div>제안일 : <%= @vote.voted_date %></div>
+      <div>무슨 일이 있었지? <a href="#jc_background_c" data-toggle="collapse">click</a></div>
+      <img src="http://imagizer.imageshack.us/v2/100x75q90/905/GP2wIx.png" class="jc_greencircle_1">
+    </div>
+    
+    <div id="jc_background_c" class="collapse">
+      수고했습니다. 다음은 의사일정 제53항을 의결할 순서입니다마는 이 안건에 대해서는 두 분의 토론신청이 있으므로 토론을 하도록 하겠습니다.  
+    </div>
+    <img src="http://imagizer.imageshack.us/v2/100x75q90/905/GP2wIx.png" class="jc_greencircle_2">
+    <div id="jc_discussion">토론</div>
+
+    <div class="row vertical-align">
+      <div class="col-xs-2 col-md-2 jc_no_wrap nopadding">
+        <img src="http://pds.joins.com/news/component/htmlphoto_mmdata/201303/07/htm_20130307004530103011.jpg" class="img-circle" width="60" height="60"><br><b>오세훈</b>
+      </div>
+      <div class="col-xs-10 col-md-10">
+        <div class="jc_arrow-left"></div>
+        <div class="jc_dialog">
+          <div class="jc_dialog_title">부의장의 말</div>
+          <div class="jc_dialog_contents">
+            수고했습니다.
+            다음은 의사일정 제53항을 의결할 순서입니다마는 이 안건에 대해서는 두 분의 토론신청이 있으므로 토론을 하도록 하겠습니다.<br><br>이정희 의원 나오셔서 토론해 주시기 바랍니다.
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="jc_number">
-      <%= @step_number %>
+    <div class="row vertical-align">
+      <div class="col-xs-10 col-md-10">
+        <div class="jc_arrow-right"></div>
+        <div class="jc_dialog">
+          <div class="jc_dialog_title">반대 의견</div>
+          <div class="jc_dialog_contents">
+            저는 오늘 재난 및 안전관리 기본법 일부 개정 법률안의 66조의11 신설 조항에 대해서 반대토론 하고자 합니다.<br><br>
+            이 안건의 요지가 잘못 제시되어 있다는 점에서 이처럼 의원님들의 판단을 흐리게 하는 자료를 배포하는 것은 타당하지 않다고 생각합니다.<br><br>
+            의원님들께서 잘 아시다시피 특별교부세는 지방교부세의 한 요소로서 지역 현안의 40%, 재해.재난에 50%, 국가시책을 위해서 10% 배부되어 있습니다. 이 중 50%에 해당하는 재해.재난 분이 이번에 행정자치부에서 국민안전처로 이관 되는 것입니다. 금액으로 따지면 2015년도 예산 안 4975억 원에 달합니다.<br>
+            <a href="#demo2" data-toggle="collapse" class="jc_dialog_more"><br>더보기&#9660;</a>
+            <div id="demo2" class="collapse">
+              수고했습니다. 다음은 의사일정 제53항을 의결할 순서입니다마는 이 안건에 대해서는 두 분의 토론신청이 있으므로 토론을 하도록 하겠습니다.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-2 col-md-2 jc_no_wrap nopadding">
+        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQsD7a-FiVAzBTmuuYzksAiwcS95QOTxUvDsDwwjaALWBCZ7I8c" class="img-circle" width="60" height="60"><br>
+        <b>이정희</b>
+      </div>
     </div>
 
-    <h1><%= @vote.title %></h1>
-    <!-- <h1>&#10077<%= @vote.title %>&#10078</h1> -->
-    <div id="jc_background">
-    <div>제안일 : <%= @vote.voted_date %></div>
-    <div>무슨 일이 있었지? <a href="#jc_background_c" data-toggle="collapse">click</a></div>
-    <img src="http://imagizer.imageshack.us/v2/100x75q90/905/GP2wIx.png" class="jc_greencircle_1">
-    </div>
-    <div id="jc_background_c" class="collapse">수고했습니다.
-다음은 의사일정 제53항을 의결할 순서입니다마는 이 안건에 대해서는 두 분의 토론신청이 있으므로 토론을 하도록 하겠습니다.  </div>
-<img src="http://imagizer.imageshack.us/v2/100x75q90/905/GP2wIx.png" class="jc_greencircle_2">
-<div id="jc_discussion">토론</div>
+    <div class="clearfix"></div>
 
-<div class="row vertical-align">
-
-<div class="col-xs-2 col-md-2 jc_no_wrap nopadding">
-<img src="http://pds.joins.com/news/component/htmlphoto_mmdata/201303/07/htm_20130307004530103011.jpg" class="img-circle" width="60" height="60"><br><b>오세훈</b></div>
-
-<div class="col-xs-10 col-md-10"><div class="jc_arrow-left"></div><div class="jc_dialog"><div class="jc_dialog_title">부의장의 말</div><div class="jc_dialog_contents">수고했습니다.
-다음은 의사일정 제53항을 의결할 순서입니다마는 이 안건에 대해서는 두 분의 토론신청이 있으므로 토론을 하도록 하겠습니다.<br><br>이정희 의원 나오셔서 토론해 주시기 바랍니다.</div></div></div>
-</div>
-
-<div class="row vertical-align">
-<div class="col-xs-10 col-md-10"><div class="jc_arrow-right"></div><div class="jc_dialog"><div class="jc_dialog_title">반대 의견</div><div class="jc_dialog_contents">
-저는 오늘 재난 및 안전관리 기본법 일부 개정 법률안의 66조의11 신설 조항에 대해서 반대토론 하고자 합니다.<br><br>
-
-이 안건의 요지가 잘못 제시되어 있다는 점에서 이처럼 의원님들의 판단을 흐리게 하는 자료를 배포하는 것은 타당하지 않다고 생각합니다.<br><br>
-
-의원님들께서 잘 아시다시피 특별교부세는 지방교부세의 한 요소로서 지역 현안의 40%, 재해.재난에 50%, 국가시책을 위해서 10% 배부되어 있습니다. 이 중 50%에 해당하는 재해.재난 분이 이번에 행정자치부에서 국민안전처로 이관 되는 것입니다. 금액으로 따지면 2015년도 예산 안 4975억 원에 달합니다.<br><a href="#demo2" data-toggle="collapse" class="jc_dialog_more"><br>더보기&#9660;</a><div id="demo2" class="collapse">수고했습니다.
-다음은 의사일정 제53항을 의결할 순서입니다마는 이 안건에 대해서는 두 분의 토론신청이 있으므로 토론을 하도록 하겠습니다.</div></div></div></div>
-<div class="col-xs-2 col-md-2 jc_no_wrap nopadding">
-<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQsD7a-FiVAzBTmuuYzksAiwcS95QOTxUvDsDwwjaALWBCZ7I8c" class="img-circle" width="60" height="60"><br><b>이정희</b>
-</div>
-
-</div>
-
-
-<div class="clearfix"></div>
-
-
-
+    <!-- Start of the form -->
     <%= form_for @vote_result, html: {role: "form" } do |f| %>
       <%= hidden_field_tag :user_id, @user.id %>
       <%= hidden_field_tag :vote_id, @vote.id %>
@@ -58,26 +68,19 @@
       <div class="form-group has-feedback <%= validation_state(@vote_result, :result) %>">
 
         <div class="radio" align="center">
-          <label class="radio-inline">
-            <%= f.radio_button :result, 'chanseong', required: "required" %> <h2>찬성</h2>
-          </label>
-              <img src="http://imagizer.imageshack.us/v2/150x100q90/905/GP2wIx.png" class="jc_greencircle_3">
-          <label class="radio-inline">
-            <%= f.radio_button :result, 'bandae', required: "required" %><h2>반대</h2>
-          </label>
+          <label class="radio-inline"><%= f.radio_button :result, 'chanseong', required: "required" %> <h2>찬성</h2></label>
+          <img src="http://imagizer.imageshack.us/v2/150x100q90/905/GP2wIx.png" class="jc_greencircle_3">
+          <label class="radio-inline"><%= f.radio_button :result, 'bandae', required: "required" %><h2>반대</h2></label>
         </div>
 
         <span class="glyphicon <%= validation_state_feedback(@vote_result, :result) %> form-control-feedback"></span>
         <span class="help-block"><%= attribute_error_message(@vote_result, :result) %></span>
       </div>
+      <%= f.submit "다음 안건으로 ", class: "btn btn-primary center-block jc_btn_custom"  %>
 
-
-
-
-        <%= f.submit "다음 안건으로 ", class: "btn btn-primary center-block jc_btn_custom"  %>
-
-    <% end %>
-
-  </div>
-</div>
-</div>
+    <% end %> 
+    <!-- end of the form -->
+  
+  </div><!-- col-xs-12 col-md-6 col-md-offset-3 -->
+</div><!-- row -->
+</div><!-- jc_all_pad -->
