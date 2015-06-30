@@ -6,4 +6,13 @@ $(document).on('ready page:load', function () {
     slidesToShow: 1,
 
   });
+
+  $('.flow-text').css('font-size',function(){
+    var responsiveFontSize = $(this).width() / 33;
+    if( responsiveFontSize < 18 )
+      return 18
+    else
+      return responsiveFontSize
+  });
+
 });
