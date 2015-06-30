@@ -28,3 +28,11 @@ $font-family-serif:       "Nanum Myeongjo", Georgia, "Times New Roman", Times, s
 .flow-text {
   line-height: 1.5em;
 }
+
+
+div.dialogue-profile-div{
+    height:60px;
+    width:60px;
+    overflow:hidden;
+    border-radius:50%;
+}

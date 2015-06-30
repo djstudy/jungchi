@@ -1,6 +1,8 @@
 <div class="col-xs-2 col-md-2 jc_no_wrap nopadding">
   <% if vote_info.representative %>
-  <img src="<%=vote_info.representative.profile_img_url%>" class="img-circle" width="60" height="60"><br>
+  <div class="dialogue-profile-div center-block">
+    <img src="<%=vote_info.representative.profile_img_url%>" width="60px" ><br>
+  </div>
   <b><%= vote_info.representative.name %></b>
   <% else %>
   <%= image_tag "default_representative_profile_image.jpg", class:"img-circle", width: "60", height: "60" %><br>
