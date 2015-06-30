@@ -4,6 +4,8 @@
     <% @reporting_results.each do |score| %>
       <div>
       <%= score[:representative].name %>
+      <img src= "http://watch.peoplepower21.org/images/member/<%= score[:representative].id %>.jpg" />
+      <%= score[:representative].party %>
       <%= score[:count] %>
       </div>
     <% end %>
