@@ -7,12 +7,12 @@
   <div class="jc_dialog">
     <div class="jc_dialog_title"><%= title %></div>
     <div class="jc_dialog_contents">
-      <%= vote_info.content %>
+      <%= simple_format vote_info.content %>
 
       <% if vote_info.content_plus %>
       <a href="#more<%=vote_info.id %>" data-toggle="collapse" class="jc_dialog_more"><br>더보기 &#9660;</a>
       <div id="more<%=vote_info.id %>" class="collapse">
-        <%= vote_info.content_plus %>
+        <%= simple_format vote_info.content_plus %>
       </div>
       <% end %>
 
