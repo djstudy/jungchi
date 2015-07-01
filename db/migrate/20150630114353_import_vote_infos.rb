@@ -10,8 +10,6 @@ class ImportVoteInfos < ActiveRecord::Migration
     csv.each do |row|
       row["content"].gsub!("<br/>", "\n") if row["content"]
       row["content_plus"].gsub!("<br/>", "\n") if row["content_plus"]
-      # row[5] if row[5]
-      # row[6].gsub!("<br/>", "\n") if row[6]
       VoteInfo.create!(row.to_hash)
     end
   end

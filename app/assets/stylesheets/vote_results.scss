@@ -41,7 +41,7 @@
   position: relative;
   display: block;
   margin: 20px;
-  
+
 }
 .jc_dialog{
 	border-radius: 15px;
@@ -54,8 +54,8 @@
 }
 .jc_arrow-left {
 	position: absolute;
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	top: 50%;
 	left: 5px;
 	border-top: 10px solid transparent;
@@ -64,8 +64,8 @@
 }
 .jc_arrow-right {
 	position: absolute;
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	top: 50%;
 	right: 5px;
 	border-top: 10px solid transparent;
@@ -99,7 +99,7 @@ a.jc_dialog_more:link, a.jc_dialog_more:hover, a.jc_dialog_more:visited{
 
 .jc_all_pad{
 	padding:12px;
-	
+
 }
 
 .jc_selection{
@@ -119,7 +119,7 @@ a.jc_dialog_more:link, a.jc_dialog_more:hover, a.jc_dialog_more:visited{
 }
 
 #jc_background{
-	
+
 	text-align: justify;
 	padding: 0px 3px 0px 3px;
 	font-weight:bold;
@@ -133,7 +133,7 @@ a.jc_dialog_more:link, a.jc_dialog_more:hover, a.jc_dialog_more:visited{
 }
 #jc_background:after {
   content: '';
-  width: 100%; 
+  width: 100%;
   display: inline-block;
 }
 #jc_background_c{

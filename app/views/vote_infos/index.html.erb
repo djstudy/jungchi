@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <table class="table table-striped">
+      <tr>
+        <th>Vote</th>
+        <th>Speaker</th>
+        <th>Info Type</th>
+        <th>Sequence</th>
+        <th></th>
+      </tr>
+
+    <% @vote_infos.each do |vote_info| %>
+      <tr>
+        <td><%= vote_info.vote.title %></td>
+        <td><%= vote_info.representative.name if vote_info.representative %></td>
+        <td><%= vote_info.info_type %></td>
+        <td><%= vote_info.sequence %></td>
+        <td><%= link_to "Edit", edit_vote_info_path(vote_info) %></td>
+      </tr>
+    <% end %>
+
+    </table>
+
+
+  </div><!-- end of col-xs-12 col-md-6 col-md-offset-3 -->
+</div> <!-- end of row -->

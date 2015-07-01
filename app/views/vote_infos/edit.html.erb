@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <%= form_for @vote_info, html: {role: "form", class: "form-horizontal"} do |f| %>
+
+
+    <div class="form-group has-feedback">
+        <%= label_tag  "", "Vote Title", class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= label_tag  "", @vote_info.vote.title %>
+        </div>
+    </div>
+
+
+    <div class="form-group has-feedback <%= validation_state(@vote_info, :content_title) %>">
+      <%= f.label :content_title, "Content Title", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :content_title, autofocus: true, class: "form-control" %>
+        <span class="glyphicon <%= validation_state_feedback(@vote_info, :content_title) %> form-control-feedback"></span>
+        <span class="help-block"><%= attribute_error_message(@vote_info, :content_title) %></span>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback <%= validation_state(@vote_info, :content) %>">
+      <%= f.label :content, "Content", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_area :content, autofocus: true, class: "form-control", rows: "10" %>
+        <span class="glyphicon <%= validation_state_feedback(@vote_info, :content) %> form-control-feedback"></span>
+        <span class="help-block"><%= attribute_error_message(@vote_info, :content) %></span>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback <%= validation_state(@vote_info, :content_plus) %>">
+      <%= f.label :content_plus, "Content Plus", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_area :content_plus, autofocus: true, class: "form-control", rows: "10" %>
+        <span class="glyphicon <%= validation_state_feedback(@vote_info, :content_plus) %> form-control-feedback"></span>
+        <span class="help-block"><%= attribute_error_message(@vote_info, :content_plus) %></span>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback <%= validation_state(@vote_info, :speaker_id) %>">
+      <%= f.label :speaker_id, "Speaker ID", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :speaker_id, autofocus: true, class: "form-control" %>
+        <span class="glyphicon <%= validation_state_feedback(@vote_info, :speaker_id) %> form-control-feedback"></span>
+        <span class="help-block"><%= attribute_error_message(@vote_info, :speaker_id) %></span>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback <%= validation_state(@vote_info, :sequence) %>">
+      <%= f.label :sequence, "Sequence", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :sequence, autofocus: true, class: "form-control" %>
+        <span class="glyphicon <%= validation_state_feedback(@vote_info, :sequence) %> form-control-feedback"></span>
+        <span class="help-block"><%= attribute_error_message(@vote_info, :sequence) %></span>
+      </div>
+    </div>
+
+
+    <div class="pull-right">
+      <%= f.submit "Edit", class: "btn btn-primary "  %>
+      <%= link_to vote_infos_path do %>
+        <button type="button" class="btn btn-default ">
+          Back
+        </button>
+      <% end %>
+    </div>
+    <% end %>
+
+
+
+  </div><!-- end of col-xs-12 col-md-6 col-md-offset-3 -->
+</div> <!-- end of row -->
