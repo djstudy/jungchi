@@ -1,16 +1,19 @@
 <div class="col-xs-10 col-md-10">
-  <% if vote_info.is_yes? %>
-  <div class="jc_arrow-left"></div>
-  <% elsif vote_info.is_no? %>
-  <div class="jc_arrow-right"></div>
+  <% if !consecutive %>
+    <% if vote_info.is_yes? %>
+    <div class="jc_arrow-left"></div>
+    <% elsif vote_info.is_no? %>
+    <div class="jc_arrow-right"></div>
+    <% end %>
   <% end %>
-  <div class="jc_dialog">
-    <div class="jc_dialog_title"><%= title %></div>
+
+  <div class="jc_dialog ">
+
     <div class="jc_dialog_contents flow-text">
-      <%= simple_format vote_info.content %>
+      <%= simple_format vote_info.content, class: "jc-no-margin" %>
 
       <% if vote_info.content_plus %>
-      <a href="#more<%=vote_info.id %>" data-toggle="collapse" class="jc_dialog_more"><br>더보기 &#9660;</a>
+      <a href="#more<%=vote_info.id %>" data-toggle="collapse" class="jc_dialog_more">더보기 &#9660;</a>
       <div id="more<%=vote_info.id %>" class="collapse">
         <%= simple_format vote_info.content_plus %>
       </div>

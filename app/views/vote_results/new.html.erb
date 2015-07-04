@@ -24,15 +24,7 @@
 
     <% @vote.vote_infos.opinions.each do |vote_info| %>
 
-    <div class="row vertical-align">
-    <% if vote_info.is_yes? %>
-      <%= render 'profile', vote_info: vote_info %>
-      <%= render 'opinion', vote_info: vote_info, title: "부의장의 말" %>
-    <% elsif vote_info.is_no? %>
-      <%= render 'opinion', vote_info: vote_info, title: "반대 의견" %>
-      <%= render 'profile', vote_info: vote_info %>
-    <% end %>
-    </div>
+      <%= render 'sequence', vote_info: vote_info %>
 
     <% end %>
 
@@ -41,7 +33,7 @@
     <div class="clearfix"></div>
 
     <!-- Start of the form -->
-    <%= form_for @vote_result, html: {role: "form" } do |f| %>
+    <%= form_for @vote_result, html: {role: "form", class: "vote-form" } do |f| %>
       <%= hidden_field_tag :user_id, @user.id %>
       <%= hidden_field_tag :vote_id, @vote.id %>
 

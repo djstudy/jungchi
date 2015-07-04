@@ -1,4 +1,6 @@
 $(document).on('ready page:load', function () {
+  $('.flow-text').wordBreakKeepAll();
+
   $('.representatives-carousel').slick({
     dots: true,
     infinite: false,
@@ -9,8 +11,8 @@ $(document).on('ready page:load', function () {
 
   $('.flow-text').css('font-size',function(){
     var responsiveFontSize = $(this).width() / 33;
-    if( responsiveFontSize < 18 )
-      return 18
+    if( responsiveFontSize < 14 )
+      return 14
     else
       return responsiveFontSize
   });

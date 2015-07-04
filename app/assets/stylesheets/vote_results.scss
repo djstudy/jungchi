@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.vote-form {
+	margin-top: 40px;
+}
 .representatives-carousel{
   margin: 0 50px 50px 50px;
 }
@@ -48,10 +51,12 @@
 	border-color:#006666;
 	border-style:solid;
 	border-width:3px;
-	padding:10px;
+	padding:5px;
 	background-color:#006666;
 	color:white;
 }
+
+
 .jc_arrow-left {
 	position: absolute;
 	width: 0;
@@ -73,11 +78,17 @@
 	border-left: 10px solid #006666;
 }
 .vertical-align {
-    display: flex;
-    align-items: center;
-    margin-top:25px;
-	margin-bottom:30px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 	}
+
+.jc-dialog-consecutive
+{
+	margin-top: 5px;
+}
+
+
 .jc_dialog_title {
 	background-color: white;
 	padding:5px;
@@ -87,7 +98,7 @@
 	font-weight:bold;
 }
 .jc_dialog_contents{
-	padding:10px 5px;
+	padding:3px 3px;
 }
 a.jc_dialog_more:link, a.jc_dialog_more:hover, a.jc_dialog_more:visited{
 	color:yellow;
@@ -194,4 +205,9 @@ a.jc_dialog_more:link, a.jc_dialog_more:hover, a.jc_dialog_more:visited{
 	vertical-align:middle;
 	padding-bottom:20px;
 	opacity:0.4;
+}
+
+
+.jc-no-margin{
+	margin: 0;
 }

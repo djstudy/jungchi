@@ -26,6 +26,7 @@ $font-family-serif:       "Nanum Myeongjo", Georgia, "Times New Roman", Times, s
 
 
 .flow-text {
+  word-break: keep-all;
   line-height: 1.5em;
 }
 

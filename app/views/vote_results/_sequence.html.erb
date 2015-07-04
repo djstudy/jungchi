@@ -1,0 +1,26 @@
+<% if vote_info.consecutive? %>
+  <div class="row vertical-align jc-dialog-consecutive">
+
+  <% if vote_info.is_yes? %>
+    <div class="col-xs-2 col-md-2 jc_no_wrap nopadding">
+    </div>
+    <%= render 'opinion', vote_info: vote_info, consecutive: true %>
+
+  <% elsif vote_info.is_no? %>
+    <%= render 'opinion', vote_info: vote_info, consecutive: true %>
+  <% end %>
+
+  </div>
+<% else %>
+  <div class="row vertical-align ">
+
+  <% if vote_info.is_yes? %>
+    <%= render 'profile', vote_info: vote_info %>
+    <%= render 'opinion', vote_info: vote_info, consecutive: false %>
+  <% elsif vote_info.is_no? %>
+    <%= render 'opinion', vote_info: vote_info, consecutive: false %>
+    <%= render 'profile', vote_info: vote_info %>
+  <% end %>
+
+  </div>
+<% end %>

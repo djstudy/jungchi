@@ -14,6 +14,10 @@ class VoteInfo < ActiveRecord::Base
   }
 
 
+  def consecutive?
+    prev_vote_info = vote.vote_infos.opinions.find_by_sequence(sequence-1)
+    prev_vote_info && prev_vote_info.representative == representative
+  end
 
   def self.previously
     find_by_info_type("prev")
