@@ -5,6 +5,19 @@ class VoteInfosController < ApplicationController
     @vote_infos = VoteInfo.all
   end
 
+  def new
+    @vote_info = VoteInfo.new
+  end
+
+  def create
+    @vote_info = VoteInfo.new(vote_info_params)
+    if @vote_info.save
+      redirect_to vote_infos_path
+    else
+      render "fucked!"
+    end
+  end
+
   def edit
     @vote_info = VoteInfo.find(params[:id])
   end

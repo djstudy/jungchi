@@ -1,11 +1,20 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+    <div class="pull-right">
+      <%= link_to "New", new_vote_info_path, class: "btn btn-primary "  %>
+      <br>
+    </div>
+
+
+
     <table class="table table-striped">
       <tr>
         <th>Vote</th>
         <th>Speaker</th>
         <th>Info Type</th>
         <th>Sequence</th>
+        <th></th>
         <th></th>
       </tr>
 
@@ -15,7 +24,8 @@
         <td><%= vote_info.representative.name if vote_info.representative %></td>
         <td><%= vote_info.info_type %></td>
         <td><%= vote_info.sequence %></td>
-        <td><%= link_to "Edit", edit_vote_info_path(vote_info) %></td>
+        <td><%= link_to "Edit", edit_vote_info_path(vote_info), class: "btn btn-sm btn-warning" %></td>
+        <td><%= link_to "Delete", vote_info_path(vote_info), method: :delete, data: { confirm: "Really?" }, class: "btn btn-sm btn-danger "  %></td>
       </tr>
     <% end %>
 
