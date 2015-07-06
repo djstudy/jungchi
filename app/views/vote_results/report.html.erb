@@ -10,10 +10,12 @@
       <div class="jc_rep_name">
         <%= score[:representative].name %>
       </div>
-      <img src= "<%= score[:representative].profile_img_url %>" class="jc_rep_img"/>
+      <img src= "<%= score[:representative].profile_result_img_url %>" class="jc_rep_img"/>
       <%= score[:representative].party %>
       <br>
       <%= score[:count] %>개 일치
+      <br>
+      <%= score[:representative].combo %> 콤보!
       </div>
     <% end %>
     </div>
