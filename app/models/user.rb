@@ -5,26 +5,36 @@ class User < ActiveRecord::Base
     user_result= self.vote_results
     result_a = []
     Representative.all.each do |r|
-      count = 0
+      point = 0
       r.vote_results.each do |r_vote_result|
         user_result.each do |a_user_result|
-          if r_vote_result.vote_id == a_user_result.vote_id && result_compare(a_user_result.result, r_vote_result.result)
-            count +=1
+          if r_vote_result.vote_id == a_user_result.vote_id
+            if result_same?(a_user_result.result, r_vote_result.result)
+              point += 1
+            elsif result_opposite?(a_user_result.result, r_vote_result.result)
+              point -= 1
+            end
           end
         end
       end
-      result_a.push({representative: r, count: count})
+      result_a.push({representative: r, point: point})
     end
     result_a
-
-
   end
 
-  def result_compare(i,j)
+  def result_same?(i,j)
     if i=="bandae" || i=="gigwon"
       j=="bandae" || j=="gigwon"
     else
       i==j
+    end
+  end
+
+  def result_opposite?(i,j)
+    if i=="bandae" || i=="gigwon"
+      j== "chanseong"
+    elsif i=="chanseong"
+      j=="bandae" || j=="gigwon"
     end
   end
 

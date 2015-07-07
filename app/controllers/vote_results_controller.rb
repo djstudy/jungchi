@@ -54,7 +54,7 @@ class VoteResultsController < ApplicationController
       end
 
 
-      @reporting_results = @user.make_score.sort { |a, b| -a[:count] <=> -b[:count] }.take(10)
+      @reporting_results = @user.make_score.sort { |a, b| -a[:point] <=> -b[:point] }.take(10)
 
     else
       raise '잘못된 접근'
