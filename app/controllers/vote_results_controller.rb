@@ -54,7 +54,8 @@ class VoteResultsController < ApplicationController
       end
 
 
-      @reporting_results = @user.make_score.sort { |a, b| -a[:point] <=> -b[:point] }.take(10)
+      @reporting_results = @user.make_score(Representative.all).take(10)
+      @reporting_named_result = @user.make_score( Representative.where(popularity: "high").all).first
 
     else
       raise '잘못된 접근'

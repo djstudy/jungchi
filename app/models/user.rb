@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
   has_many :vote_results
 
-	def make_score
+	def make_score(representatives)
     user_result= self.vote_results
     result_a = []
-    Representative.all.each do |r|
+
+    representatives.each do |r|
       point = 0
       r.vote_results.each do |r_vote_result|
         user_result.each do |a_user_result|
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
       end
       result_a.push({representative: r, point: point})
     end
-    result_a
+    result_a.sort { |a, b| -a[:point] <=> -b[:point] }
   end
 
   def result_same?(i,j)
