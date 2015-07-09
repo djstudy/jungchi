@@ -1,0 +1,25 @@
+
+
+<!-- Modal -->
+<div class="modal fade" id="cancelUserAlarm" tabindex="-1" role="dialog" aria-labelledby="cancelUserAlarmLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="cancelUserAlarmLabel">결과 받는 것 취소하기</h4>
+      </div>
+      <%= form_for @user, html: {role: "form" } do |f| %>
+      <div class="modal-body">
+      본 결과를 선거 즈음에 받는걸 원치 않으시면 취소하실 수 있습니다.<br><br>
+        <%= f.hidden_field :email, value: nil %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <%= f.submit "결과 다시 받기 취소", class: "btn btn-danger"  %>
+      </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+

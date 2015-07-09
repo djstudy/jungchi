@@ -17,4 +17,8 @@ $(document).on('ready page:load', function () {
       return responsiveFontSize
   });
 
+
+  $('#userAlarm').on('shown.bs.modal', function () {
+    $('#userAlarm').focus()
+  })
 });
