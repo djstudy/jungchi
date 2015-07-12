@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_email_params)
-      redirect_to report_vote_result_path(@user.id)
+      redirect_to report_vote_results_path(@user.id)
     else
       render "fucked!"
     end

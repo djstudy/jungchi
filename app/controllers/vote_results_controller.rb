@@ -16,7 +16,7 @@ class VoteResultsController < ApplicationController
     vote_count = @user.vote_results.all.count
     @step_number = vote_count + 1
     if vote_count >= TOTAL_VOTING_NUMBER
-      redirect_to report_vote_result_path(@user)
+      redirect_to report_vote_results_path(@user.id)
     else
       @vote = Vote.all.order(:id).all[vote_count]
       @vote_result = VoteResult.new

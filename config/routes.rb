@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   resources :vote_results do
     collection do
       post 'start'
+      get 'report/:id', to: 'vote_results#report', as: 'report'
     end
 
-    member do
-      get 'report'
-    end
+
+
   end
 
   resources :vote_infos
