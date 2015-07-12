@@ -12,7 +12,7 @@
     <div class="jc_dialog_contents flow-text">
       <%= simple_format vote_info.content, class: "jc-no-margin" %>
 
-      <% if vote_info.content_plus.blank? %>
+      <% if !vote_info.content_plus.blank? %>
         <div class="text-right">
           <a href="#more<%=vote_info.id %>" data-toggle="collapse" class="jc_dialog_more">더보기 &#9660;</a>
         </div>
