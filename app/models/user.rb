@@ -13,11 +13,14 @@ class User < ActiveRecord::Base
             if result_same?(a_user_result.result, r_vote_result.result)
               point += 1
             elsif result_opposite?(a_user_result.result, r_vote_result.result)
-              point -= 1
+              point -= 0
+            else
+              point += 0.5
             end
           end
         end
       end
+      point = ((point*100) / user_result.length).round(0)
       result_a.push({representative: r, point: point})
     end
     result_a.sort { |a, b| -a[:point] <=> -b[:point] }
