@@ -34,11 +34,12 @@ module ApplicationHelper
       meta_image = "<meta property=\"og:image\" content=\"#{request.protocol}#{request.host_with_port}#{asset_path("jc.svg")}\" />"
       meta_title = "<meta property=\"og:title\" content=\"내게 딱맞는 국회의원 찾기\" />"
     end
-
+    meta_type = "<meta property=\"og:type\" content=\"website\" />"
     meta_site_name = "<meta property=\"og:site_name\" content=\"정친(政親)\" />"
-    meta_url = "<meta property=\"og:url\" content=\"#{request.original_url}\" />"
+    # meta_url = "<meta property=\"og:url\" content=\"#{request.original_url}\" />"
     meta_description = "<meta property=\"og:description\" content=\"국회의원 300명 중에 당신의 정친(政親)은 누굴까요? 나경원? 이완구? 문재인? 안철수? 정친(政親)은 5분 안으로 300명의 국회의원 중 당신과 가장 잘 맞는 정치인을 찾아드립니다.\" />"
     meta_app_id = "<meta property=\"fb:app_id\" content=\"475973985913779\" />"
-    meta_title + meta_site_name + meta_url + meta_image + meta_description + meta_app_id
+    # meta_title + meta_site_name + meta_url + meta_image + meta_description + meta_app_id + meta_type
+    meta_title + meta_site_name + meta_image + meta_description + meta_app_id + meta_type
   end
 end
