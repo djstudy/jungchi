@@ -31,9 +31,16 @@ class VoteInfosController < ApplicationController
     end
   end
 
+  def destroy
+    @vote_info = VoteInfo.find(params[:id])
+    @vote_info.destroy
+
+    redirect_to vote_infos_path
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def vote_info_params
-      params.require(:vote_info).permit(:content_title, :content, :content_plus, :speaker_id , :sequence, :info_type)
+      params.require(:vote_info).permit(:vote_id, :content_title, :content, :content_plus, :speaker_id , :sequence, :info_type)
     end
 end

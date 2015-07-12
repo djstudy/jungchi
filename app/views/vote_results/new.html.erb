@@ -4,27 +4,12 @@
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: <%=@vote_percentage%>%;"></div>
     </div>
-    <script>
-        $(function(){
- var shrinkHeader = 525;
-  $(window).scroll(function() {
-    var scroll = getCurrentScroll();
-      if ( scroll >= shrinkHeader ) {
-           $('.jc_shrinker').addClass('shrink');
-        }
-        else {
-            $('.jc_shrinker').removeClass('shrink');
-        }
-  });
-function getCurrentScroll() {
-    return window.pageYOffset || document.documentElement.scrollTop;
-    }
-});</script>
+
   <div class="jc_shrinker">
     <h1><%= @step_number %>&nbsp;<%= @vote.title %></h1><!-- <h1>&#10077<%= @vote.title %>&#10078</h1> -->
   </div>
     <div class="jc_number"><%= @step_number %></div>
-    
+
     <h1><%= @vote.title %></h1><!-- <h1>&#10077<%= @vote.title %>&#10078</h1> -->
 
 
@@ -57,12 +42,19 @@ function getCurrentScroll() {
       <%= hidden_field_tag :user_id, @user.id %>
       <%= hidden_field_tag :vote_id, @vote.id %>
 
-      <div class="form-group has-feedback <%= validation_state(@vote_result, :result) %>">
+      <div class="form-group has-feedback text-center <%= validation_state(@vote_result, :result) %>">
 
-        <div class="radio" align="center">
-          <label class="radio-inline"><%= f.radio_button :result, 'chanseong', required: "required" %> <h2>찬성</h2></label>
+
+        <div class="btn-group radio" data-toggle="buttons">
+          <label class="btn btn-success ">
+            <%= f.radio_button :result, 'chanseong', required: "required" %>
+            <h4>찬성</h4>
+          </label>
           <img src="http://imagizer.imageshack.us/v2/150x100q90/905/GP2wIx.png" class="jc_greencircle_3">
-          <label class="radio-inline"><%= f.radio_button :result, 'bandae', required: "required" %><h2>반대</h2></label>
+          <label class="btn btn-danger ">
+            <%= f.radio_button :result, 'bandae', required: "required" %>
+            <h4>반대</h4>
+          </label>
         </div>
 
         <span class="glyphicon <%= validation_state_feedback(@vote_result, :result) %> form-control-feedback"></span>
