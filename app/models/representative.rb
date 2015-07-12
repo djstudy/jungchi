@@ -12,4 +12,16 @@ class Representative < ActiveRecord::Base
     "http://watch.peoplepower21.org/images/member/#{id}.jpg"
   end
 
+  def profile_party_img_url
+    if party == " 현직 국회의원이 아닙니다."
+      ActionController::Base.helpers.asset_path( "not_representative.png")
+    else
+      ActionController::Base.helpers.asset_path( "#{party}.png")
+    end
+  end
+
+  def profile_combo_info
+      "(#{combo}선)"
+  end
+
 end

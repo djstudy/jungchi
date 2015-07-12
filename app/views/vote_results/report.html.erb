@@ -3,24 +3,30 @@
     <p class= "jc_results_ment_title">당신의 정친테스트 결과</p>
     <p class="jc_results_ment flow-text">당신은 <i><%= "#{@reporting_named_result[:representative].name} (#{@reporting_named_result[:point]}점)" %></i> 라기 보다는...</p>
      <img src="http://imagizer.imageshack.us/v2/100x75q90/905/GP2wIx.png" class="jc_greencircle_name"><br>
+
+    <!-- Carousel Start -->
     <div class="representatives-carousel">
     <% @reporting_results.each do |score| %>
       <div class="jc_results">
 
-      <div class="jc_rep_name">
-        <%= score[:representative].name %>
-      </div>
-      <img src= "<%= score[:representative].profile_result_img_url %>" class="jc_rep_img"/>
-      <%= score[:representative].party %>
+      <div class="jc_rep_name"><%= score[:representative].name %></div>
+      <div style="overflow:hidden; max-height:400px;"><img src= "<%= score[:representative].profile_result_img_url %>" class="jc_rep_img "/></div>
+      <div><img src= "<%= score[:representative].profile_party_img_url %>" class="jc_party_img"/></div>
+      <!-- <%= score[:representative].party %> --> <!-- Party's logo image  -->
+      <%= score[:representative].area %>
       <br>
-      <%= score[:point] %>점! (의견일치 +1, 의견상충 -1)
+      <%= score[:representative].profile_combo_info %>
       <br>
-      <%= score[:representative].combo %> 콤보!
+      <%= score[:point] %>점!
+      <br>
+      (의견일치 +1, 의견상충 -1)
+      <br>
+
       </div>
     <% end %>
     </div>
+    <!-- Carousel End -->
     <img src="http://imagizer.imageshack.us/v2/100x75q90/905/GP2wIx.png" class="jc_greencircle_result">
-
     <p class="jc_results_share">이 결과를<br>페이스북에<br>공유하기<p>
 
 

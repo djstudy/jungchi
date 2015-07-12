@@ -4,8 +4,10 @@ class SetPopularitiesOfRepresentatives < ActiveRecord::Migration
     Representative.all.each do |r|
       if(named.include?(r.name))
         r.update(popularity: "high")
+        r.save
       else
         r.update(popularity: "low")
+        r.save
       end
     end
   end
