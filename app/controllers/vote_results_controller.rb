@@ -1,5 +1,5 @@
 class VoteResultsController < ApplicationController
-  before_action :authenticate!, except: [:index, :start]
+  before_action :authenticate!, except: [:index, :start, :report]
   def index
 
   end
