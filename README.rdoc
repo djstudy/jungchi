@@ -1,28 +1,7 @@
-== README
+JungChin(http://jungch.in)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+국회의원 300명 중에 당신의 정친(政親)은 누굴까요? 나경원? 이완구? 문재인? 안철수? 
+매일 뉴스에 오르내리는 이들 말고 296명의 의원 중에 당신과 더 ‘비슷하게’ 생각하는 정친이 숨어있을지도 모릅니다.
+정친(政親)은 5분 안으로 300명의 국회의원 중 당신과 가장 잘 맞는 정치인을 찾아드립니다. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+정치는 머리 아플지라도 정친은 머리 아프지 않습니다! 자 이제 당신의 ‘정친’을 찾으러 가볼까요? 
