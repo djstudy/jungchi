@@ -2,10 +2,62 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url(//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css);
 
 body{
-	font-family: 'Nanum Barun Gothic', sans-serif !important;
+	font-family: "Nanum Barun Gothic", sans-serif !important;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
 }
+.jc_shrinker{
+	    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display:none;
+    text-align:center;
+    padding: 10px 0px;
+    z-index: 1000;
+    height: 200px;
+    overflow: hidden;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    transition: height 0.3s;
+    
+    line-height:160px;
+}
+.jc_shrinker.shrink {
+	display:block;
+	background-color:black;
+
+	padding: 1px 13px;
+    height: 42px;
+    line-height:42px;
+    box-shadow: 2px 2px 10px gray;
+}
+.jc_shrinker.h1
+{	
+
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.jc_shrinker.shrink h1
+{
+	font-weight: bold;
+    font-size:13px;
+    text-align:center;
+    margin:0px;
+    color:white;
+    position:relative;
+    height:30px;
+    top:25%;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
 .jc_greencircle_result{
 	position:absolute;
 	left: 50%;
@@ -70,7 +122,10 @@ body{
 	padding : 12px 12px 12px 12px;
 }
 
-@media (min-width: 240px) {
+@media (min-width: 320px) {
+.jc_what_happened{
+	font-size:12px !important;
+}
 .jc_results{
 	text-align: center;
 	border: 2px solid black;
@@ -95,14 +150,14 @@ body{
 	font-size: 17px;
 }
 .jc_navbar_logo{
-	position:absolute;
-	left:50%;
-	margin-left:-140px;
+	position:relative;
+	margin-top:15px;
+	margin-bottom: 30px;
 }
 .jc_navbar_custom{
 	background-color:transparent !important;
 	border-color:transparent !important;
-	height:185px;
+	height:150px;
 	padding:20px;
 }
 .progress-bar{
@@ -139,8 +194,8 @@ body{
 	position: absolute;
 	width: 0;
 	height: 0;
-	top: 50%;
-	left: 5px;
+	top: 30%;
+	left: 8px;
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
 	border-right: 10px solid #006666;
@@ -149,8 +204,8 @@ body{
 	position: absolute;
 	width: 0;
 	height: 0;
-	top: 50%;
-	right: 5px;
+	top: 30%;
+	right: 8px;
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
 	border-left: 10px solid #006666;

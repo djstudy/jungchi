@@ -4,11 +4,31 @@
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: <%=@vote_percentage%>%;"></div>
     </div>
-
+    <script>
+        $(function(){
+ var shrinkHeader = 525;
+  $(window).scroll(function() {
+    var scroll = getCurrentScroll();
+      if ( scroll >= shrinkHeader ) {
+           $('.jc_shrinker').addClass('shrink');
+        }
+        else {
+            $('.jc_shrinker').removeClass('shrink');
+        }
+  });
+function getCurrentScroll() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+    }
+});</script>
+  <div class="jc_shrinker">
+    <h1><%= @step_number %>&nbsp;<%= @vote.title %></h1><!-- <h1>&#10077<%= @vote.title %>&#10078</h1> -->
+  </div>
     <div class="jc_number"><%= @step_number %></div>
+    
     <h1><%= @vote.title %></h1><!-- <h1>&#10077<%= @vote.title %>&#10078</h1> -->
 
-    <div id="jc_background">
+
+    <div id="jc_background" class="jc_what_happened">
       <div>제안일 : <%= @vote.voted_date %></div>
       <div>무슨 일이 있었지?
         <a href="#jc_background_c" data-toggle="collapse">click</a>
