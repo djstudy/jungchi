@@ -4,10 +4,7 @@ class Representative < ActiveRecord::Base
 
   def profile_result_og_img_url
 
-
-      # result = "#{request.protocol}#{request.host_with_port}"
       result = ActionController::Base.helpers.image_path( "#{id}.jpg")
-
   end
 
   def profile_result_img_url

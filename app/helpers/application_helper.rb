@@ -26,9 +26,13 @@ module ApplicationHelper
   def generate_og_tags(reporting_results, reporting_named_result)
     meta_image =""
     meta_title =""
+
     if reporting_results
       meta_image = "<meta property=\"og:image\" content=\"#{request.protocol}#{request.host_with_port}#{reporting_results.first[:representative].profile_result_og_img_url}\" />"
       meta_title = "<meta property=\"og:title\" content=\"#{reporting_named_result[:representative].name} 보다는 #{reporting_results.first[:representative].name}\" />"
+    else
+      meta_image = "<meta property=\"og:image\" content=\"#{request.protocol}#{request.host_with_port}#{asset_path("jc.svg")}\" />"
+      meta_title = "<meta property=\"og:title\" content=\"내게 딱맞는 국회의원 찾기\" />"
     end
 
     meta_site_name = "<meta property=\"og:site_name\" content=\"정친(政親)\" />"
