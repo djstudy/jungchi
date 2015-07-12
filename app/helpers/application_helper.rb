@@ -38,7 +38,7 @@ module ApplicationHelper
       meta_description = "<meta property=\"og:description\" content=\"#{meta_description_content}\" />"
 
     else
-      meta_image = "<meta property=\"og:image\" content=\"#{request.protocol}#{request.host_with_port}#{asset_path("jc_fb")}\" />"
+      meta_image = "<meta property=\"og:image\" content=\"#{request.protocol}#{request.host_with_port}#{asset_path("jc_fb.png")}\" />"
       meta_title = "<meta property=\"og:title\" content=\"내게 딱맞는 국회의원 찾기\" />"
       meta_description = "<meta property=\"og:description\" content=\"국회의원 300명 중에 당신의 정친(政親)은 누굴까요? 나경원? 이완구? 문재인? 안철수? 정친(政親)은 5분 안으로 300명의 국회의원 중 당신과 가장 잘 맞는 정치인을 찾아드립니다.\" />"
     end
