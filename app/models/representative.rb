@@ -4,11 +4,11 @@ class Representative < ActiveRecord::Base
 
   def profile_result_og_img_url
 
-      result = ActionController::Base.helpers.image_path( "#{id}.jpg")
+      result = ActionController::Base.helpers.image_path( "#{id}")
   end
 
   def profile_result_img_url
-    ActionController::Base.helpers.asset_path( "#{id}.jpg")
+    ActionController::Base.helpers.asset_path( "#{id}")
     # "http://watch.peoplepower21.org/images/member/#{id}.jpg"
   end
 
