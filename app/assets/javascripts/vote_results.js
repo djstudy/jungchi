@@ -1,3 +1,4 @@
+
 $(document).on('ready page:load', function () {
   $('.flow-text').wordBreakKeepAll();
 
@@ -21,4 +22,24 @@ $(document).on('ready page:load', function () {
   $('#userAlarm').on('shown.bs.modal', function () {
     $('#userAlarm').focus()
   })
+
+
+  $(function(){
+    var shrinkHeader = 525;
+    $(window).scroll(function() {
+      var scroll = getCurrentScroll();
+      if ( scroll >= shrinkHeader ) {
+        $('.jc_shrinker').addClass('shrink');
+      }
+      else {
+        $('.jc_shrinker').removeClass('shrink');
+      }
+    });
+
+    function getCurrentScroll() {
+      return window.pageYOffset || document.documentElement.scrollTop;
+    }
+
+  });
+
 });
