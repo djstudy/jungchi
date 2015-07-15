@@ -29,7 +29,7 @@ module ApplicationHelper
 
     if reporting_results
       meta_image = "<meta property=\"og:image\" content=\"#{request.protocol}#{request.host_with_port}#{reporting_results.first[:representative].profile_result_og_img_url}\" />"
-      meta_title = "<meta property=\"og:title\" content=\"#{reporting_named_result[:representative].name} 보다는 #{reporting_results.first[:representative].name}\" />"
+      meta_title = "<meta property=\"og:title\" content=\"#{reporting_named_result[:representative].name} 보다는 #{reporting_results.first[:representative].name}!\" />"
 
       meta_description_content = "오히려 #{reporting_results.first[:representative].party} #{reporting_results.first[:representative].name} 의원과 #{reporting_results.first[:point]}%로 의견이 비슷하시네요. 비슷한 다른의원으론 "
       meta_description_content += reporting_results.map { |e| "#{e[:representative].name}"}.join(", ")

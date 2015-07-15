@@ -78,6 +78,6 @@ private
   def get_percentage
     @user = User.find(session[:user_id])
     vote_count = @user.vote_results.all.count
-    100 * (vote_count / TOTAL_VOTING_NUMBER.to_f)
+    100 * (vote_count / (TOTAL_VOTING_NUMBER.to_f-1))
   end
 end
