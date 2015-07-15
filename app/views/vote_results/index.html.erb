@@ -18,12 +18,19 @@
          자 이제 당신의 <strong>‘정친’</strong>을 찾으러 가볼까요?
     </p>
 
-        <div class="text-center">
+      <div class="text-center">
         <%= link_to(start_vote_results_path, method: :post, class: "btn btn-default jc_btn_custom" )  do %>
             시작하기
             <span class="glyphicon glyphicon-send" ></span>
         <% end %>
+        <br>
+        <a href="#more-wagon" data-toggle="collapse" class="jc_dialog_more invert"><i>도와줘요 스피드웨건!</i></a>
+
+        <div id="more-wagon" class="collapse">
+          <%= image_tag "speedwagon.jpg", class: "img-responsive", alt:"aka 설명충"  %>
+          설명의 귀재 ☆스★피☆드★웨☆건★이 자세한 설명을 도와드릴거에요! 하핫!
         </div>
+      </div>
 
     </div>
 

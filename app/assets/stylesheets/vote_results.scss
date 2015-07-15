@@ -240,6 +240,10 @@ a.jc_dialog_more:link, a.jc_dialog_more:hover, a.jc_dialog_more:visited{
 	font-weight:bold;
 	text-align:center;
 }
+a.jc_dialog_more.invert {
+  font-size: 12px;
+  background-color: teal;
+}
 
 .jc_all_pad{
 	/*padding:12px;*/

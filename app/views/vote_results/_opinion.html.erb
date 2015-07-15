@@ -14,7 +14,7 @@
 
       <% if !vote_info.content_plus.blank? %>
         <div class="text-right">
-          <a href="#more<%=vote_info.id %>" data-toggle="collapse" class="jc_dialog_more">더보기 &#9660;</a>
+          <a href="#more<%=vote_info.id %>" data-toggle="collapse" class="jc_dialog_more"><i>도와줘요 스피드웨건!</i></a>
         </div>
         <div id="more<%=vote_info.id %>" class="collapse">
           <%= simple_format vote_info.content_plus %>
