@@ -166,8 +166,8 @@ body{
 }
 
 .jc_btn_custom{
-	margin-top:50px;
-	margin-bottom:50px !important;
+	margin-top:10px;
+	margin-bottom:10px !important;
 	background-color:black !important;
 	border-color:black !important;
 	color:white !important;
@@ -255,12 +255,16 @@ a.jc_dialog_more:link, a.jc_dialog_more:hover, a.jc_dialog_more:visited{
 
 .jc_number{
 	border-radius: 100%;
-    width: 40px;
-    height: 40px;
-    background-color: black;
-    text-align:center;
-    color:white;
-    font-size:30px;
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  text-align:center;
+  color:white;
+  font-size:30px;
+}
+.jc_vote_title{
+  margin-left: 10px;
 }
 
 #jc_background{
@@ -356,4 +360,17 @@ a.jc_dialog_more:link, a.jc_dialog_more:hover, a.jc_dialog_more:visited{
 {
   position:relative;
   margin: 0px auto;
+}
+
+
+.jc_prev_story {
+  position: absolute;
+  right: 30px;
+}
+
+.jc_footer_custom {
+  padding-top: 10px;
+  margin-top: 50px;
+  border-top: 1px solid #e5e5e5;
+
 }

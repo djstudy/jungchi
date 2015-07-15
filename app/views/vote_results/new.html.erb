@@ -10,13 +10,15 @@
   </div>
     <div class="jc_number"><%= @step_number %></div>
 
-    <h1><%= @vote.title %></h1><!-- <h1>&#10077<%= @vote.title %>&#10078</h1> -->
+    <h1 class="jc_vote_title" ><%= @vote.title %></h1><!-- <h1>&#10077<%= @vote.title %>&#10078</h1> -->
 
 
     <div id="jc_background" class="jc_what_happened">
       <div>제안일 : <%= @vote.voted_date %></div>
-      <div>무슨 일이 있었지?
-        <a href="#jc_background_c" data-toggle="collapse">click</a>
+      <div class="jc_prev_story">
+        <a href="#jc_background_c" data-toggle="collapse">
+          무슨 일이 있었지?
+        </a>
       </div>
       <img src="http://imagizer.imageshack.us/v2/100x75q90/905/GP2wIx.png" class="jc_greencircle_1">
     </div>
@@ -63,7 +65,15 @@
         <span class="glyphicon <%= validation_state_feedback(@vote_result, :result) %> form-control-feedback"></span>
         <span class="help-block"><%= attribute_error_message(@vote_result, :result) %></span>
       </div>
-      <%= f.submit "다음 안건으로 ", class: "btn btn-primary center-block jc_btn_custom"  %>
+      <% if @step_number == 6 %>
+        <%= button_tag(type: 'submit', class: "btn btn-primary center-block jc_btn_custom")  do %>
+          결과보기 <span class="glyphicon glyphicon-flag"></span>
+
+        <% end %>
+      <% else %>
+        <%= f.submit "다음 안건으로 ", class: "btn btn-primary center-block jc_btn_custom"  %>
+      <% end %>
+
 
     <% end %>
     <!-- end of the form -->

@@ -1,7 +1,8 @@
 class VoteResultsController < ApplicationController
   before_action :authenticate!, except: [:index, :start, :report]
+  RANDOM_FUNNY_PICS = [447, 795, 467, 460, 454, 837, 354, 683, 628, 847, 344, 513, 567, 775, 783, 33]
   def index
-
+    @random_pic = Representative.find(RANDOM_FUNNY_PICS.sample).profile_result_img_url
   end
   def start
     current_user = User.create()

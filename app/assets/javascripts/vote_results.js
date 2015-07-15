@@ -1,7 +1,8 @@
 
 $(document).on('ready page:load', function () {
   $('.flow-text').wordBreakKeepAll();
-
+  $('.jc_vote_title').wordBreakKeepAll();
+  $('.jc_shrinker h1').wordBreakKeepAll();
   $('.representatives-carousel').slick({
     dots: true,
     infinite: true,
