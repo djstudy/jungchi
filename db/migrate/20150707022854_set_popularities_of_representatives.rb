@@ -12,6 +12,6 @@ class SetPopularitiesOfRepresentatives < ActiveRecord::Migration
     end
   end
   def down
-
+    Representative.all.update_all(popularity: nil)
   end
 end
