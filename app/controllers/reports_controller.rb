@@ -2,7 +2,7 @@ require 'descriptive_statistics'
 
 class ReportsController < ApplicationController
   def index
-  	finisher = User.all.select { |u| u.vote_results.count >= 6}
+  	finisher = User.all.select { |u| u.vote_results.count >= 6  && u.vote_results.find_by_vote_id(9041) != nil}
   	minus_time = 0
   	finisher.each do |t|
   		a_time = t.vote_results.find_by_vote_id(9041).created_at
