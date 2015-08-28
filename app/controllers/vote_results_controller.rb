@@ -4,6 +4,7 @@ class VoteResultsController < ApplicationController
   def index
     @random_pic = Representative.find(RANDOM_FUNNY_PICS.sample).profile_result_img_url
   end
+
   def start
     current_user = User.create()
     session[:user_id] = current_user.id
