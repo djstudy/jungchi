@@ -27,7 +27,7 @@ class ReportsController < ApplicationController
       @yes_table[v.id] = aggr["chanseong"] || 0
       @no_table[v.id] = aggr["bandae"] || 0
     end
-  	
+
 
   	reps = Representative.all
   	reps_score = Hash.new
@@ -44,16 +44,16 @@ class ReportsController < ApplicationController
   			end
   		end
   	end
-  	top_reps =reps_score.sort_by {|_key, value| value}
-  	@first  = reps.select{ |r| r.id = top_reps[0][0]}
-    @second  = reps.select{ |r| r.id = top_reps[1][0]}
-    @third  = reps.select{ |r| r.id = top_reps[2][0]}
-
+  	top_reps =reps_score.sort_by {|_key, value| -value}
+  	@first  = reps.find(top_reps[0][0])
+    @second  = reps.find(top_reps[1][0])
+    @third  = reps.find(top_reps[2][0])
+    # raise [@first, @second, @third].inspect
   	final_scores = []
   	top_reps.each do |d|
   		final_scores.push(d[1])
   	end
-  	
+
 
   	@reps_yes_table = Hash.new
   	@reps_no_table = Hash.new
@@ -63,7 +63,7 @@ class ReportsController < ApplicationController
       @reps_yes_table[v.id] = aggr["chanseong"]
       @reps_no_table[v.id] = aggr["bandae"] + aggr["gigwon"]
     end
-    
+
 
   end
 
