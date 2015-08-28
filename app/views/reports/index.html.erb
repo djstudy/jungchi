@@ -9,19 +9,22 @@
     </div>
     <div class="col-xs-4 col-md-2 col-md-offset-3">
         <!-- Whole number of users  -->
+
         <h1><span class="counter"><%= @report_users[0] %></span>명</h1>
-        
+
     </div>
     <div class="col-xs-4 col-md-2">
         <!-- Whole number of finishers  -->
         <h1><span class="counter"><%= @report_users[1] %></span>명</h1>
-        
+
     </div>
-    
+
     <div class="col-xs-4 col-md-2">
         <!-- avg of Lap Time  -->
+
         <h1><span class="counter"><%= @report_users[2] %></span>초</h1>
-        
+
+
     </div>
 </div>
 
@@ -29,7 +32,7 @@
     <div class="col-xs-12 col-md-6 col-md-offset-3 page-header">
       <h1>가장 인기있는 의원<small>사용자들과 의견이 가장 비슷한 의원들은?</small></h1>
     </div>
-    
+
     <div class="col-xs-4 col-md-2 col-md-offset-3">
         <img src= "/assets/467-c227008f87f6197b22fa224f7dd9dd9ace9457fdc4cbe948099d28695fc8dd84.jpg" class="jc_report_rep_award img-circle"/>
         <h3 class="jc-top3-name"><%= @first.first.name %></h3>
@@ -52,6 +55,7 @@
     <div class="col-xs-12 col-md-3 "></div>
 
     <div class="col-xs-12 col-md-6 col-md-offset-3 ">
+
         <div class="vote-result-bar-container bar-legend ">
             <div class="chanseong-bar" style="width: 50%">찬성</div>
             <div class="bandae-bar" style="width: 50%">반대</div>
@@ -59,9 +63,9 @@
     </div>
     <div class="col-xs-12 col-md-3 "></div>
 
-    <%  
+    <%
         counter = 0
-        @vote_id_arr.each do |v| 
+        @vote_id_arr.each do |v|
         if counter % 3 == 0%>
             <div class="col-xs-12 col-md-2 col-md-offset-3"><%
         else%>
@@ -69,7 +73,7 @@
         <%end
         counter = counter + 1
             %>
-    
+
         <h3>첫번째 안건</h3>
 
         <div class="vote-result-bar-container">
@@ -98,7 +102,7 @@
 
 
     </div>
-    
+
 
 
 
