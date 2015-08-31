@@ -8,7 +8,7 @@ class Representative < ActiveRecord::Base
   end
 
   def profile_result_img_url
-    ActionController::Base.helpers.asset_path( "#{id}.jpg")
+    ActionController::Base.helpers.asset_path( "#{id}")
     # "http://watch.peoplepower21.org/images/member/#{id}.jpg"
   end
 
