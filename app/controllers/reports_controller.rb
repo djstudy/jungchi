@@ -48,7 +48,7 @@ class ReportsController < ApplicationController
   	@first  = reps.find(top_reps[0][0])
     @second  = reps.find(top_reps[1][0])
     @third  = reps.find(top_reps[2][0])
-    # raise [@first, @second, @third].inspect
+    #raise [@first, @second, @third].inspect
   	final_scores = []
   	top_reps.each do |d|
   		final_scores.push(d[1])
