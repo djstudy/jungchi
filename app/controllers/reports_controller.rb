@@ -45,10 +45,8 @@ class ReportsController < ApplicationController
   		end
   	end
   	top_reps =reps_score.sort_by {|_key, value| -value}
-  	@first  = reps.find(top_reps[0][0])
-    @second  = reps.find(top_reps[1][0])
-    @third  = reps.find(top_reps[2][0])
-    #raise [@first, @second, @third].inspect
+  	@top3_with_score  = top_reps[0..2].map{ |rep| {rep: Representative.find(rep[0]), score: rep[1]} }
+    # raise @top3_with_score.inspect
   	final_scores = []
   	top_reps.each do |d|
   		final_scores.push(d[1])
