@@ -53,3 +53,9 @@
 	margin: auto;
 	width: 100px;
 }
+.vote-title-truncate
+{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

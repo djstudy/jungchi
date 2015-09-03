@@ -4,64 +4,68 @@
         <h1 class="jc_report_title" >정친 사용자 결과 레포트</h1>
     </div>
 
-    <div class="col-xs-12 col-md-6 col-md-offset-3 page-header">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 page-header">
       <h1>사용자 통계</h1>
       <h1><small>현재까지 정친을 사용하신 분들은 얼마나 될까요?</small></h1>
     </div>
-    <div class="col-xs-4 col-md-2 col-md-offset-3">
-        <!-- Whole number of users  -->
 
-        <h1><span class="counter"><%= @report_users[0] %></span>명</h1>
-        <h1><small>총 사용자</small></h1>
+    <div class="col-xs-12 col-md-8 col-md-offset-2 ">
+      <div class="col-xs-4 col-md-4 ">
+          <!-- Whole number of users  -->
 
-    </div>
-    <div class="col-xs-4 col-md-2">
-        <!-- Whole number of finishers  -->
-        <h1><span class="counter"><%= @report_users[1] %></span>명</h1>
-        <h1><small>모든 문제를 푼 사용</small></h1>
+          <h1><span class="counter"><%= @report_users[0] %></span>명</h1>
+          <h1><small>총 사용자</small></h1>
 
-    </div>
+      </div>
+      <div class="col-xs-4 col-md-4">
+          <!-- Whole number of finishers  -->
+          <h1><span class="counter"><%= @report_users[1] %></span>명</h1>
+          <h1><small>모든 문제를 푼 사용</small></h1>
 
-    <div class="col-xs-4 col-md-2">
-        <!-- avg of Lap Time  -->
+      </div>
 
-        <h1><span class="counter"><%= @report_users[2].round(2) %></span>초</h1>
-        <h1><small>평균 소요 시간</small></h1>
+      <div class="col-xs-4 col-md-4">
+          <!-- avg of Lap Time  -->
+
+          <h1><span class="counter"><%= @report_users[2].round(2) %></span>초</h1>
+          <h1><small>평균 소요 시간</small></h1>
 
 
+      </div>
     </div>
 </div>
 
 <div class="row" style="padding:10px">
-    <div class="col-xs-12 col-md-6 col-md-offset-3 page-header">
-      <h1>가장 인기있는 의원</h1>
-      <h1><small>사용자들과 의견이 가장 비슷한 의원들은 누구 일까요?</small></h1>
-    </div>
+  <div class="col-xs-12 col-md-8 col-md-offset-2 page-header">
+    <h1>가장 인기있는 의원</h1>
+    <h1><small>사용자들과 의견이 가장 비슷한 의원들은 누구 일까요?</small></h1>
+  </div>
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
 
-    <div class="col-xs-4 col-md-2 col-md-offset-3">
+    <div class="col-xs-4 col-md-4 ">
         <img src= "<%= @first.profile_result_img_url %>" class="jc_rep_img jc_report_rep_award"/>
         <h3 class="jc-top3-name"><%= @first.name %></h3>
         <img src= "<%= @first.profile_party_img_url %>" class="jc_rep_img jc_report_rep_award"/>
     </div>
-    <div class="col-xs-4 col-md-2">
+    <div class="col-xs-4 col-md-4">
         <img src= "<%= @second.profile_result_img_url %>" class="jc_rep_img jc_report_rep_award"/>
         <h3 class="jc-top3-name"><%= @second.name %></h3>
         <img src= "<%= @second.profile_party_img_url %>" class="jc_rep_img jc_report_rep_award"/>
     </div>
-    <div class="col-xs-4 col-md-2">
+    <div class="col-xs-4 col-md-4">
         <img src= "<%= @third.profile_result_img_url %>" class="jc_rep_img jc_report_rep_award"/>
         <h3 class="jc-top3-name"><%= @third.name %></h3>
         <img src= "<%= @third.profile_party_img_url %>" class="jc_rep_img jc_report_rep_award"/>
     </div>
+  </div>
 </div>
 
 
 <div class="row" style="padding:10px">
-    <div class="col-xs-12 col-md-6 col-md-offset-3 page-header">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 page-header">
       <h1>각 의안별 통계</h1>
       <h1><small>의원과 사용자들의 찬반 결과는 어떤 차이가 있을까?</small></h1>
     </div>
-    <div class="col-xs-12 col-md-3 "></div>
 
     <div class="col-xs-12 col-md-6 col-md-offset-3 ">
 
@@ -70,54 +74,31 @@
             <div class="bandae-bar" style="width: 50%">반대</div>
         </div>
     </div>
-    <div class="col-xs-12 col-md-3 "></div>
 
-    <%
-        counter = 0
-        @vote_id_arr.each do |v|
-        if counter % 3 == 0%>
-            <div class="col-xs-12 col-md-2 col-md-offset-3"><%
-        else%>
-            <div class="col-xs-12 col-md-2">
-        <%end
-        counter = counter + 1
-            %>
 
-        <h3><%= counter %>번째 안건</h3>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <% @votes.each do |vote| %>
+    <div class="col-xs-12 col-md-4 ">
+      <h3 class="vote-title-truncate"><%= vote.title %></h3>
 
-        <div class="vote-result-bar-container">
-            <div class="vote-result-bar-label">User</div>
-            <div class="vote-result-bar">
-                <div class="chanseong-bar" style="width: <%= score_calc(@yes_table, @no_table, v) %>%"><%= @yes_table[v] %></div>
-                <div class="bandae-bar" style="width: <%= 100 - score_calc(@yes_table, @no_table, v) %>%"><%= @no_table[v] %></div>
-            </div>
-        </div>
-        <div class="vote-result-bar-container">
-            <div class="vote-result-bar-label">Repr</div>
-            <div class="vote-result-bar">
-                <div class="chanseong-bar" style="width: <%= score_calc(@reps_yes_table, @reps_no_table, v) %>%"><%= @reps_yes_table[v] %></div>
-                <div class="bandae-bar" style="width: <%= 100 - score_calc(@reps_yes_table, @reps_no_table, v) %>%"><%= @reps_no_table[v] %></div>
-            </div>
-        </div>
+      <div class="vote-result-bar-container">
+          <div class="vote-result-bar-label">User</div>
+          <div class="vote-result-bar">
+              <div class="chanseong-bar" style="width: <%= score_calc(@yes_table, @no_table, vote.id) %>%"><%= @yes_table[vote.id] %></div>
+              <div class="bandae-bar" style="width: <%= 100 - score_calc(@yes_table, @no_table, vote.id) %>%"><%= @no_table[vote.id] %></div>
+          </div>
+      </div>
+      <div class="vote-result-bar-container">
+          <div class="vote-result-bar-label">Repr</div>
+          <div class="vote-result-bar">
+              <div class="chanseong-bar" style="width: <%= score_calc(@reps_yes_table, @reps_no_table, vote.id) %>%"><%= @reps_yes_table[vote.id] %></div>
+              <div class="bandae-bar" style="width: <%= 100 - score_calc(@reps_yes_table, @reps_no_table, vote.id) %>%"><%= @reps_no_table[vote.id] %></div>
+          </div>
+      </div>
     </div>
     <% end %>
-
-
-</div>
-
-
-    <div id="jc_background_c" class="collapse flow-text">
-    <div id="jc_debate_color">
-
-
     </div>
+  </div>
 
-
-
-
-
-
-
-  </div><!-- col-xs-12 col-md-6 col-md-offset-3 -->
 </div><!-- row -->
 </div><!-- jc_all_pad -->
