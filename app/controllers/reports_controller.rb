@@ -31,7 +31,7 @@ class ReportsController < ApplicationController
 
   	reps = Representative.all
   	reps_score = Hash.new
-    @vote_id_arr = Vote.pluck(:id).uniq
+    @vote_id_arr = Vote.order(:id).pluck(:id).uniq
   	reps.each do |r|
   		r_vote_results = r.vote_results
   		r_vote_results.each do |r_vote|
