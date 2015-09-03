@@ -46,7 +46,9 @@ class ReportsController < ApplicationController
   		end
   	end
   	top_reps =reps_score.sort_by {|_key, value| -value}
-  	@top3_with_score  = top_reps[0..2].map{ |rep| {rep: Representative.find(rep[0]), score: rep[1]} }
+  	@top3_with_score = top_reps[0..2].map{ |rep| {rep: Representative.find(rep[0]), score: rep[1]} }
+    @last_with_score = {rep: Representative.find(top_reps.last[0]), score: top_reps.last[1] }
+
     score_data = top_reps.map{ |rep| rep[1]}
     @score_mean = score_data.mean
     @score_std = score_data.standard_deviation

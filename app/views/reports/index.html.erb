@@ -47,16 +47,30 @@
   </div>
 
   <div class="col-xs-12 col-md-8 col-md-offset-2">
-    <% @top3_with_score.each do |rep_with_score| %>
-    <div class="col-xs-4 col-md-4 ">
-      <img src= "<%= rep_with_score[:rep].profile_result_img_url %>" class="jc_rep_img jc_report_rep_award"/>
+    <div class="row">
+      <% @top3_with_score.each_with_index do | rep_with_score, index| %>
+      <div class="col-xs-4 col-md-4 ">
+        <h3><%= index+1 %>등</h3>
+        <img src= "<%= rep_with_score[:rep].profile_result_img_url %>" class="jc_rep_img jc_report_rep_award"/>
+
+        <h3 class="jc-top3-name">
+          <img src= "<%= rep_with_score[:rep].profile_party_img_url %>" class=" jc-report-party-image" />
+          <%= rep_with_score[:rep].name %><small><%= rep_with_score[:score].round(1) %>점</small>
+        </h3>
+      </div>
+      <% end %>
+    </div>
+
+
+    <div class="col-xs-4 col-md-4 col-md-offset-4 ">
+      <h3>꼴등</h3>
+      <img src= "<%= @last_with_score[:rep].profile_result_img_url %>" class="jc_rep_img jc_report_rep_award"/>
 
       <h3 class="jc-top3-name">
-        <img src= "<%= rep_with_score[:rep].profile_party_img_url %>" class=" jc-report-party-image" />
-        <%= rep_with_score[:rep].name %><small><%= rep_with_score[:score].round(1) %>점</small>
+        <img src= "<%= @last_with_score[:rep].profile_party_img_url %>" class=" jc-report-party-image" />
+        <%= @last_with_score[:rep].name %><small><%= @last_with_score[:score].round(1) %>점</small>
       </h3>
     </div>
-    <% end %>
 
   </div>
 </div>
