@@ -33,20 +33,24 @@ class ReportsController < ApplicationController
   	reps_score = Hash.new
     @votes = Vote.order(:id)
   	reps.each do |r|
+      reps_score[r.id] = 0
   		r_vote_results = r.vote_results
   		r_vote_results.each do |r_vote|
   			if r_vote.result == "chanseong"
-  				reps_score[r.id] = @yes_table[r_vote.vote_id]
-  				reps_score[r.id] = reps_score[r.id] - @no_table[r_vote.vote_id]
-  			elsif r_vote.result == "bandae"
-  				reps_score[r.id] = @no_table[r_vote.vote_id]
-  				reps_score[r.id] = reps_score[r.id] - @yes_table[r_vote.vote_id]
+  				reps_score[r.id] += @yes_table[r_vote.vote_id]
+  			elsif r_vote.result == "bandae" || r_vote.result == "gigwon"
+  				reps_score[r.id] += @no_table[r_vote.vote_id]
+        else
+          reps_score[r.id] += ( @no_table[r_vote.vote_id] + @yes_table[r_vote.vote_id] ) * 0.5
   			end
   		end
   	end
   	top_reps =reps_score.sort_by {|_key, value| -value}
   	@top3_with_score  = top_reps[0..2].map{ |rep| {rep: Representative.find(rep[0]), score: rep[1]} }
-    # raise @top3_with_score.inspect
+    score_data = top_reps.map{ |rep| rep[1]}
+    @score_mean = score_data.mean
+    @score_std = score_data.standard_deviation
+
   	final_scores = []
   	top_reps.each do |d|
   		final_scores.push(d[1])
