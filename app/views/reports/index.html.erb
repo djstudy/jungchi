@@ -1,55 +1,52 @@
-<div class="jc_all_pad">
+<div class="jc-padding-for-mobile">
 <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <h1 class="jc_report_title" >정친 사용자 결과 레포트</h1>
+        <h1 class="jc_report_title" >사용자 결과 레포트</h1>
     </div>
 
     <div class="col-xs-12 col-md-8 col-md-offset-2 page-header">
       <h1>사용자 통계</h1>
-      <h1><small>현재까지 정친을 사용하신 분들은 얼마나 될까요?</small></h1>
+      <h1><small class="smaller">현재까지 정친을 사용하신 분들은 얼마나 될까요?</small></h1>
     </div>
 
     <div class="col-xs-12 col-md-8 col-md-offset-2 ">
-      <div class="col-xs-4 col-md-4 ">
+      <div class="col-xs-12 col-md-4 ">
           <!-- Whole number of users  -->
 
-          <h1><span class="counter"><%= @report_users[0] %></span>명</h1>
-          <h1><small>총 사용자</small></h1>
+          <h1 ><span class="counter"><%= @report_users[0] %></span>명</h1>
+          <p>총 사용자</p>
 
       </div>
-      <div class="col-xs-4 col-md-4">
+      <div class="col-xs-12 col-md-4">
           <!-- Whole number of finishers  -->
-          <h1><span class="counter"><%= @report_users[1] %></span>명</h1>
-          <h1><small>모든 문제를 푼 사용</small></h1>
+          <h1><span class="counter"><%= (@report_users[1].to_f/@report_users[0]*100).round(1) %></span>%</h1>
+          <p>모든 문제를 푼 사용자 비율</p>
+
 
       </div>
 
-      <div class="col-xs-4 col-md-4">
+      <div class="col-xs-12 col-md-4">
           <!-- avg of Lap Time  -->
 
-          <h1><span class="counter"><%= @report_users[2].round(2) %></span>초</h1>
-          <h1><small>평균 소요 시간</small></h1>
+          <h1><span class="counter"><%= (@report_users[2]/60).round(2) %></span>분</h1>
+          <p>평균 소요 시간</p>
 
 
       </div>
     </div>
 </div>
 
-<div class="row" style="padding:10px">
+<div class="row" >
   <div class="col-xs-12 col-md-8 col-md-offset-2 page-header">
     <h1>가장 인기있는 의원</h1>
-    <h1><small>사용자들과 의견이 가장 비슷한 의원들은 누구 일까요?</small></h1>
+    <h1><small class="smaller">사용자들과 의견이 가장 비슷한 의원들은 누구 일까요?</small></h1>
   </div>
-  <div class="col-xs-12 col-md-6 col-md-offset-3 text-center ">
-    <h4>
-      평균점수 : <%= @score_mean.round(2) %>, 표준편차 : <%= @score_std.round(2) %>
-    </h4>
-  </div>
+
 
   <div class="col-xs-12 col-md-8 col-md-offset-2">
     <div class="row">
       <% @top3_with_score.each_with_index do | rep_with_score, index| %>
-      <div class="col-xs-4 col-md-4 ">
+      <div class="col-xs-12 col-md-4 ">
         <h3><%= index+1 %>등</h3>
         <img src= "<%= rep_with_score[:rep].profile_result_img_url %>" class="jc_rep_img jc_report_rep_award"/>
 
@@ -62,7 +59,8 @@
     </div>
 
 
-    <div class="col-xs-4 col-md-4 col-md-offset-4 ">
+
+    <div class="col-xs-12 col-md-4 col-md-offset-4 ">
       <h3>꼴등</h3>
       <img src= "<%= @last_with_score[:rep].profile_result_img_url %>" class="jc_rep_img jc_report_rep_award"/>
 
@@ -72,14 +70,20 @@
       </h3>
     </div>
 
+  <div class="col-xs-12 col-md-6 col-md-offset-3  ">
+    <p class="jc-explain-box">
+       점수는 사용자와 의원들이 안건들에 대해 얼마나 같은 의견을 보였는지를 의미합니다. 총 318명의 의원들의 평균점수는 <%= @score_mean.round(2) %>점이었고, 표준편차는 <%= @score_std.round(2) %>이었습니다.
+    <p>
+  </div>
+
   </div>
 </div>
 
 
-<div class="row" style="padding:10px">
+<div class="row" >
     <div class="col-xs-12 col-md-8 col-md-offset-2 page-header">
       <h1>각 의안별 통계</h1>
-      <h1><small>의원과 사용자들의 찬반 결과는 어떤 차이가 있을까?</small></h1>
+      <h1><small class="smaller">의원과 사용자들의 찬반 결과는 어떤 차이가 있을까?</small></h1>
     </div>
 
     <div class="col-xs-12 col-md-6 col-md-offset-3 ">
