@@ -4,11 +4,11 @@ class Representative < ActiveRecord::Base
 
   def profile_result_og_img_url
 
-      result = ActionController::Base.helpers.image_path( "#{id}")
+      result = ActionController::Base.helpers.image_path( "#{id}.jpg")
   end
 
   def profile_result_img_url
-    ActionController::Base.helpers.image_path( "#{id}")
+    ActionController::Base.helpers.image_path( "#{id}.jpg")
     # "http://watch.peoplepower21.org/images/member/#{id}.jpg"
   end
 
@@ -19,9 +19,9 @@ class Representative < ActiveRecord::Base
 
   def profile_party_img_url
     if party == " 현직 국회의원이 아닙니다."
-      ActionController::Base.helpers.image_path( "not_representative")
+      ActionController::Base.helpers.image_path( "not_representative.png")
     else
-      ActionController::Base.helpers.image_path( "#{party}")
+      ActionController::Base.helpers.image_path( "#{party}.png")
     end
   end
 
