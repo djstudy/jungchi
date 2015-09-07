@@ -18,7 +18,7 @@ class Representative < ActiveRecord::Base
   end
 
   def profile_party_img_url
-    if party == " 현직 국회의원이 아닙니다."
+    if party == " 현직 국회의원이 아닙니다." || party == "현직 국회의원이 아닙니다."
       ActionController::Base.helpers.image_path( "not_representative.png")
     else
       ActionController::Base.helpers.image_path( "#{party}.png")

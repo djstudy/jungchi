@@ -62,10 +62,18 @@
 
 .jc-report-party-image
 {
+  max-width: 100%;
+  height : 100px;
+
+}
+
+.jc-report-party-image-sub
+{
   max-width: 50px;
   /*height : 36px*/
 
 }
+
 small.smaller{
   font-size : 1.4rem;
   color: #777777;
@@ -76,6 +84,9 @@ small.smaller{
 }
 .jc-explain-box{
   border-top: 1px gray solid;
-  margin-top: 10px;
+  margin-top: 30px;
   padding-top: 10px;
+}
+.jc-glyphicon-small{
+  font-size: 2.5rem;
 }

@@ -58,6 +58,16 @@ class ReportsController < ApplicationController
   		final_scores.push(d[1])
   	end
 
+    party_scores = {}
+    reps_score.each do |rep_score|
+      party_scores[Representative.find(rep_score[0]).party] = {score: 0, count: 0} if !party_scores[Representative.find(rep_score[0]).party]
+      party_scores[Representative.find(rep_score[0]).party][:score] += rep_score[1]
+      party_scores[Representative.find(rep_score[0]).party][:count] += 1
+    end
+
+    @parties = party_scores.map { |k,v| {name: k.strip, total_score: v[:score], avg_score: v[:score]/v[:count].to_f, count: v[:count]} }
+    @parties = @parties.sort_by! {|e| -e[:avg_score]}
+
 
   	@reps_yes_table = Hash.new
   	@reps_no_table = Hash.new
@@ -67,6 +77,9 @@ class ReportsController < ApplicationController
       @reps_yes_table[v.id] = aggr["chanseong"]
       @reps_no_table[v.id] = aggr["bandae"] + aggr["gigwon"]
     end
+
+
+
 
 
   end

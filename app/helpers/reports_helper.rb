@@ -12,4 +12,11 @@ module ReportsHelper
 
 
 	end
+  def party_img_url(party)
+    if party[:name] == " 현직 국회의원이 아닙니다." || party[:name] == "현직 국회의원이 아닙니다."
+      image_path( "not_representative.png")
+    else
+      image_path( "#{party[:name]}.png")
+    end
+  end
 end

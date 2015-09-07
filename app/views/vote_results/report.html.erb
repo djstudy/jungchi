@@ -42,9 +42,15 @@
 
 
       <br>
-      <%= link_to(vote_results_path, class: "btn btn-default ") do %>
+      <%= link_to(root_path, class: "btn btn-default ") do %>
       <span class="glyphicon glyphicon-repeat" aria-hidden="true"> </span> 다시하기
       <% end %>
+      <br><br>
+
+      <%= link_to(report_path, class: "btn btn-default ") do %>
+      <span class="glyphicon glyphicon-search" aria-hidden="true"> </span> 정친 통계보러 가기
+      <% end %>
+
       <br><br>
     </div>
 
