@@ -37,15 +37,18 @@ class ReportsController < ApplicationController
     reps.each do |r|
       reps_score[r.id] = 0
       r_vote_results = r.vote_results
+      compensate = 6 - r_vote_results.length
+      reps_score[r.id] += compensate * 0.5
       r_vote_results.each do |r_vote|
-      counter = @yes_table[r_vote.vote_id] + @no_table[r_vote.vote_id]
-      if counter == 0
-        counter = 1
-      end
+        counter = @yes_table[r_vote.vote_id] + @no_table[r_vote.vote_id]
+        if counter == 0
+          counter = 1
+        end
+
         if r_vote.result == "chanseong"
-          reps_score[r.id] += @yes_table[r_vote.vote_id] / counter.to_f
+          reps_score[r.id] += @yes_table[r_vote.vote_id].to_f / counter.to_f
         elsif r_vote.result == "bandae" || r_vote.result == "gigwon"
-          reps_score[r.id] += @no_table[r_vote.vote_id] / counter.to_f
+          reps_score[r.id] += @no_table[r_vote.vote_id].to_f / counter.to_f
         else
           reps_score[r.id] += 0.5
         end
