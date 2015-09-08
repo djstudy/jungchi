@@ -43,9 +43,9 @@ class ReportsController < ApplicationController
         counter = 1
       end
         if r_vote.result == "chanseong"
-          reps_score[r.id] += @yes_table[r_vote.vote_id] / counter
+          reps_score[r.id] += @yes_table[r_vote.vote_id] / counter.to_f
         elsif r_vote.result == "bandae" || r_vote.result == "gigwon"
-          reps_score[r.id] += @no_table[r_vote.vote_id] / counter
+          reps_score[r.id] += @no_table[r_vote.vote_id] / counter.to_f
         else
           reps_score[r.id] += 0.5
         end
