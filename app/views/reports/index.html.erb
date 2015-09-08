@@ -184,8 +184,11 @@
 
 </div><!-- row -->
 <div class="text-center">
-  <%= link_to(vote_results_path, class: "btn btn-default ") do %>
+  <%= link_to(vote_results_path, class: "btn btn-primary ") do %>
   <span class="glyphicon glyphicon-repeat" aria-hidden="true"> </span> 정친하러 가기
+  <% end %><br/><br/>
+  <%= link_to("mailto:data.journalism.study@gmail.com", class: "btn btn-default ") do %>
+  <span class="glyphicon glyphicon-send" aria-hidden="true"> </span> 만든이에게 물어보기
   <% end %>
 </div>
 
