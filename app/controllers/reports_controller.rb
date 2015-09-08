@@ -33,6 +33,7 @@ class ReportsController < ApplicationController
     reps_score = Hash.new
     @votes = Vote.order(:id)
 
+
     reps.each do |r|
       reps_score[r.id] = 0
       r_vote_results = r.vote_results
