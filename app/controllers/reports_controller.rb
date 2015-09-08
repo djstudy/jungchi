@@ -33,18 +33,21 @@ class ReportsController < ApplicationController
   	reps_score = Hash.new
     @votes = Vote.order(:id)
   	reps.each do |r|
+      next if r.vote_results.count <= 3
       reps_score[r.id] = 0
   		r_vote_results = r.vote_results
   		r_vote_results.each do |r_vote|
   			if r_vote.result == "chanseong"
-  				reps_score[r.id] += @yes_table[r_vote.vote_id]
+  				reps_score[r.id] += @yes_table[r_vote.vote_id] / ( @no_table[r_vote.vote_id] + @yes_table[r_vote.vote_id] ).to_f
   			elsif r_vote.result == "bandae" || r_vote.result == "gigwon"
-  				reps_score[r.id] += @no_table[r_vote.vote_id]
+  				reps_score[r.id] += @no_table[r_vote.vote_id] / ( @no_table[r_vote.vote_id] + @yes_table[r_vote.vote_id] ).to_f
         else
-          reps_score[r.id] += ( @no_table[r_vote.vote_id] + @yes_table[r_vote.vote_id] ) * 0.5
+          reps_score[r.id] +=  0.5
   			end
   		end
+      reps_score[r.id] = reps_score[r.id] / r_vote_results.count * 100
   	end
+
   	top_reps =reps_score.sort_by {|_key, value| -value}
   	@top3_with_score = top_reps[0..2].map{ |rep| {rep: Representative.find(rep[0]), score: rep[1]} }
     @last_with_score = {rep: Representative.find(top_reps.last[0]), score: top_reps.last[1] }
