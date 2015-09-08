@@ -60,7 +60,7 @@
 
         <h3 class="jc-top3-name">
           <img src= "<%= rep_with_score[:rep].profile_party_img_url %>" class=" jc-report-party-image-sub" />
-          <%= rep_with_score[:rep].name %><small><%= rep_with_score[:score].round(1) %>점</small>
+          <%= rep_with_score[:rep].name %><small><%= rep_with_score[:score].round(1) %>/6 점</small>
         </h3>
       </div>
       <% end %>
@@ -80,13 +80,15 @@
 
   <div class="col-xs-12 col-md-6 col-md-offset-3  ">
     <p class="jc-explain-box">
-       점수는 사용자와 의원들이 안건들에 대해 얼마나 같은 의견을 보였는지를 의미합니다. 총 318명의 의원들의 평균점수는 <%= @score_mean.round(2) %>점이었고, 표준편차는 <%= @score_std.round(2) %>이었습니다.
+       점수는 사용자와 의원들이 안건들에 대해 얼마나 같은 의견을 보였는지를 의미합니다. 총 <strong>318</strong>명의 의원들의 평균점수는 <strong><%= @score_mean.round(2) %></strong>점이었고, 표준편차는 <strong><%= @score_std.round(2) %></strong>이었습니다.
     </p>
-    <p >
-       점수의 계산 방법은 다음과 같습니다.
+    <p>점수의 계산 방법은 다음과 같습니다.</p>
+    <p>
        1) 국회의원과 사용자의 투표가 한 안건에 대해 같을 경우 +1 (단, 국회의원의 "기권"은 "반대"로 간주)
        2) 국회의원이 "불참", "청가"하였을 경우 +0.5
-
+    </p>
+    </p>
+       ex) 의원 A가 1번 의안에 대해서 찬성을 했을 때, 1번 의안에 참여한 유저가 100명이고 이 중에서 50명이 찬성을 했다면 50/100 = 0.5점을 받게됩니다.
     </p>
   </div>
 
