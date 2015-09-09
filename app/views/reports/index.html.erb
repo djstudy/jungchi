@@ -67,15 +67,16 @@
     </div>
 
 
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-md-offset-4 ">
+        <h3>꼴등</h3>
+        <img src= "<%= @last_with_score[:rep].profile_result_img_url %>" class="jc_rep_img jc_report_rep_award"/>
 
-    <div class="col-xs-12 col-md-4 col-md-offset-4 ">
-      <h3>꼴등</h3>
-      <img src= "<%= @last_with_score[:rep].profile_result_img_url %>" class="jc_rep_img jc_report_rep_award"/>
-
-      <h3 class="jc-top3-name">
-        <img src= "<%= @last_with_score[:rep].profile_party_img_url %>" class=" jc-report-party-image-sub" />
-        <%= @last_with_score[:rep].name %><small><%= @last_with_score[:score].round(1) %>점</small>
-      </h3>
+        <h3 class="jc-top3-name">
+          <img src= "<%= @last_with_score[:rep].profile_party_img_url %>" class=" jc-report-party-image-sub" />
+          <%= @last_with_score[:rep].name %><small><%= @last_with_score[:score].round(1) %>점</small>
+        </h3>
+      </div>
     </div>
 
   <div class="col-xs-12 col-md-6 col-md-offset-3  ">
@@ -103,10 +104,12 @@
 
 
   <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <% party_rank = 0 %>
+    <% @parties.each_slice(3) do |tree_parties| %>
     <div class="row">
-      <% @parties.each_with_index do | party, index| %>
+      <% tree_parties.each do | party| %>
       <div class="col-xs-12 col-md-4 ">
-        <h3><%= index+1 %>등</h3>
+        <h3><%= party_rank+=1 %>등</h3>
         <img src= "<%= party_img_url(party) %>" class="jc-report-party-image"/>
 
         <h3 class="jc-top3-name">
@@ -114,8 +117,9 @@
           <%= party[:avg_score].round(2) %>점 <small><%= party[:name] if party[:name].include?("현직") %></small>
         </h3>
       </div>
-      <% end %>
+    <% end %>
     </div>
+  <% end %>
 
 
 
