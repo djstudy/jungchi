@@ -1,4 +1,4 @@
-<div class="row">
+
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <p class= "jc_results_ment_title">당신의 정친테스트 결과</p>
     <p class="jc_results_ment flow-text">당신은 <i><%= "#{@reporting_named_result[:representative].name} (#{@reporting_named_result[:point]}%)" %></i> 라기 보다는...</p>
@@ -24,39 +24,52 @@
     <% end %>
     </div>
     <!-- Carousel End -->
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-6 col-md-3 col-md-offset-3 text-center">
-      <%= link_to(root_path, class: "btn btn-default btn-block") do %>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+        <a class="btn btn-primary btn-block" href="https://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>" target="_blank">
+          <span class="glyphicon glyphicon-thumbs-up"></span> 페이스북에 자랑하자!
+        </a>
+        <br/>
+      </div>
+
+      <div class="col-xs-12 col-sm-5 ">
+      <%= link_to(report_path, class: "btn btn-default btn-block btn-info") do %>
+      <span class="glyphicon glyphicon-search" aria-hidden="true"> </span> 통계보러 가기
+      <% end %><br/>
+
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-xs-12 col-sm-5 col-sm-offset-1 ">
+
+      <% if (!@user.email.blank? && @user.id == session[:user_id]) %>
+        <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#cancelUserAlarm">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"> </span> 구독 완료
+        </button><br/>
+      <% else %>
+
+        <button type="button" class="btn btn-default btn-block <%= btn_active(@user) %> " data-toggle="modal" data-target="#userAlarm">
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"> </span> 선거 즈음 결과 다시 받기
+        </button><br/>
+
+      <% end %>
+      </div>
+
+
+
+
+      <div class="col-xs-12 col-sm-5 ">
+      <%= link_to(root_path, class: "btn btn-default btn-block ") do %>
       <span class="glyphicon glyphicon-repeat" aria-hidden="true"> </span> ㄴㄴ인정못함 리겜ㄱㄱ
       <% end %>
-  </div>
-  <div class="col-xs-6 col-md-3 text-center">
-          <%= link_to(report_path, class: "btn btn-default btn-block") do %>
-      <span class="glyphicon glyphicon-search" aria-hidden="true"> </span> 정친 통계보러 가기
-      <% end %>
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-xs-6 col-md-3 col-md-offset-3 text-center">
-    <a class="btn btn-default btn-block" href="https://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>" target="_blank">
-        이 결과를 페이스북에 자랑하자! &nbsp;<span class="glyphicon glyphicon-thumbs-up"></span>
-      </a>
-  </div>
-  <div class="col-xs-6 col-md-3 text-center">
-      <% if (!@user.email.blank? && @user.id == session[:user_id]) %>
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cancelUserAlarm">
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"> </span> 선거 즈음에 이 결과를 다시 보내드리겠습니다.
-        </button></br>
-      <% else %>
-        <button type="button" class="btn btn-default btn-block<%= btn_active(@user) %> " data-toggle="modal" data-target="#userAlarm">
-          <span class="glyphicon glyphicon-envelope" aria-hidden="true"> </span> 선거 즈음에 이 결과를 다시 받기
-        </button></br>
-      <% end %>
-  </div>
-</div>
+      <br/>
+
+      </div>
+    </div>
+
+  </div><!-- end of col-xs-12 col-md-6 col-md-offset-3 -->
+
 
 
 

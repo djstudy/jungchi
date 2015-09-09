@@ -43,4 +43,22 @@ $(document).on('ready page:load', function () {
 
   });
 
+  $('.jc-btn-toggle').on('click',function(){
+    var JQthis = $(this);
+    var activeClass = JQthis.data('active-class');
+    var result = JQthis.data('result');
+
+    $('#submit-vote-result').tooltip('destroy');
+
+    if (result==="chanseong") {
+      $("#chanseong-button").addClass("btn-primary");
+      $("#bandae-button").removeClass("btn-danger");
+    } else {
+      $("#chanseong-button").removeClass("btn-primary");
+      $("#bandae-button").addClass("btn-danger");
+    };
+    $('#vote_result_result').val(result);
+  });
+
+  $('#submit-vote-result').tooltip();
 });

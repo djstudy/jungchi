@@ -49,29 +49,40 @@
 
       <div class="form-group has-feedback text-center <%= validation_state(@vote_result, :result) %>">
 
+      <div class="row">
 
-        <div class="btn-group radio" data-toggle="buttons">
-          <label class="btn btn-success ">
-            <%= f.radio_button :result, 'chanseong', required: "required" %>
+        <%= f.hidden_field :result, required: "required" %>
+        <div class="col-xs-6 col-md-3 col-md-offset-2">
+          <a class="btn btn-block btn-default jc-btn-toggle" data-active-class="btn-success" data-result="chanseong" id="chanseong-button">
+
             <h4>찬성</h4>
-          </label>
-          <img src="http://imagizer.imageshack.us/v2/150x100q90/905/GP2wIx.png" class="jc_greencircle_3">
-          <label class="btn btn-danger ">
-            <%= f.radio_button :result, 'bandae', required: "required" %>
-            <h4>반대</h4>
-          </label>
+
+          </a>
         </div>
+
+        <img src="http://imagizer.imageshack.us/v2/150x100q90/905/GP2wIx.png" class="jc_greencircle_3">
+        <div class="col-xs-6 col-md-3 col-md-offset-2">
+          <a class="btn btn-block btn-default jc-btn-toggle" data-active-class="btn-success" data-result="bandae" id="bandae-button">
+
+            <h4>반대</h4>
+          </a>
+        </div>
+
+      </div>
 
         <span class="glyphicon <%= validation_state_feedback(@vote_result, :result) %> form-control-feedback"></span>
         <span class="help-block"><%= attribute_error_message(@vote_result, :result) %></span>
       </div>
       <% if @step_number == 6 %>
-        <%= button_tag(type: 'submit', class: "btn btn-primary center-block jc_btn_custom")  do %>
+        <%= button_tag(type: 'submit', class: "btn btn-primary center-block jc_btn_custom", "data-toggle" => "tooltip", "data-placement"=>"top", "title"=>"찬성 또는 반대를 선택해주세요.", id: "submit-vote-result")  do %>
           결과보기 <span class="glyphicon glyphicon-flag"></span>
 
         <% end %>
       <% else %>
-        <%= f.submit "다음 안건으로 ", class: "btn btn-primary center-block jc_btn_custom"  %>
+        <%= f.submit "다음 안건으로 ", class: "btn btn-primary center-block jc_btn_custom",
+        "data-toggle" => "tooltip",
+        "data-placement"=>"top", "title"=>"찬성 또는 반대를 선택해주세요.",
+        id: "submit-vote-result"  %>
       <% end %>
 
 
